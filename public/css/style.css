@@ -409,3 +409,25 @@ header{
   color: var(--main-color);
   transition: 0.3s all linear;
 }
+
+/* Scroll Top */
+.scroll-top{
+  position: fixed;
+  bottom: -100%;
+  right: 1.5rem;
+}
+.scroll-top .bx{
+  padding: 8px;
+  font-size: 1.3rem;
+  color: var(--bg-color);
+  background: var(--box-color);
+  border-radius: 0.2rem;
+}
+.scroll-top .bx:hover{
+  background: var(--container-color);
+  transition: 0.3s;
+}
+.scroll-active{
+  bottom: 2rem;
+  transition: 0.3s;
+}
