@@ -455,3 +455,115 @@ header{
     height: 257px;
   }
 }
+
+@media (max-width:775px){
+  .logo {
+    font-size: 1.1rem; 
+  }
+  .home {
+    min-height: 500px;
+    padding-top: 6rem;
+  }
+  .home-text h3 {
+    font-size: 1rem;
+  }
+  .home-text h2 {
+    font-size: 3rem;
+    line-height: 3.8rem;
+  }
+  .home-text p {
+    font-size: 0.825rem;
+  }
+  .services-content {
+    grid-template-columns: repeat(2,1fr); 
+  }
+  .portfolio-box {
+    height: 245px;
+  }
+  .menu-icon{
+    display: flex;
+  }
+  .navbar{
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--box-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .open-menu{
+    right: 0;
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .nav-link{
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+
+@media (max-width:635px){
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  .about-data span {
+    font-size: 0.9rem;
+  }
+  .about-data h2 {
+    font-size: 1.7rem;
+    line-height: 2.3rem;
+    font-weight: 600;
+    margin: 0.8rem 0;
+  }
+  .about-text p {
+    font-size: 0.825rem;
+    margin-bottom: 1.3rem;
+  }
+ 
+}
+
+
+@media (max-width:450px){
+  .home {
+    min-height: 485px;
+    padding-top: 5rem;
+  }
+ 
+  .home-text h2 {
+    font-size: 2.1rem;
+    line-height: 3.2rem;
+  }
+  .home-text p br{
+    display: contents;
+  }
+  .heading {
+    font-size: 3rem;
+  }
+  .about-data h2 {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    margin: 0.6rem 0;
+  }
+  .services-content,
+  .portfolio-content{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+}
+@media (max-width:325px){
+  .navbar{
+    width: 100%;
+  }
+  .portfolio-box {
+    height: 190px;
+}
+}
