@@ -1,4 +1,4 @@
-/* Google Fonts */
+/* GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
@@ -10,7 +10,7 @@
     scroll-padding-top: 2rem;
 }
 
-/* Variables */
+/* VARIABLE */
 :root {
     --main-color: #de8304;
     --body-color: #070711;
@@ -93,7 +93,7 @@ header{
   transition: 0.3s all linear;
 }
 
-/* Menu Icon */
+/* MENU ICON */
 .menu-icon{
     display: none;
     flex-direction: column;
@@ -299,4 +299,56 @@ header{
 }
 .services-box p{
     font-size: 0.9rem;
+}
+
+/* Portfolio */
+.portfolio-content{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+}
+.portfolio-box{
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.portfolio-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.portfolio-overlay{
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsl(234,45%,16%,0.7);
+}
+.portfolio-overlay h2{
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.portfolio-overlay .bx{
+  font-size: 24px;
+  padding: 10px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 4px;
+}
+.portfolio-overlay .bx:hover{
+  background: #546eff;
+  transition: 0.3s all linear;
+}
+.portfolio-box:hover .portfolio-overlay{
+  top: 0;
+  transition: 0.3s all ease ;
 }
