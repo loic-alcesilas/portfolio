@@ -4,7 +4,7 @@ namespace OpenClassrooms\Portfolio\Controleur; // La classe sera dans ce namespa
 
 require_once 'Modele/modeleProjets.php';
 
-class Controleur
+class Controleur 
 {
     private $modeleProjets;
 

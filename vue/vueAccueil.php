@@ -2,12 +2,11 @@
 
 <!doctype html>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Loïc</title>
+  <title>Portfolio - Loïc</title> <!-- Élément spécifique -->
   <!-- Link To CSS -->
   <link rel="stylesheet" href="public/css/style.css">
   <!-- Box Icons -->
@@ -118,53 +117,36 @@
     </div>
   </section>
    <!-- Portfolio -->
+   
    <section class="portfolio container" id="portfolio">
     <!-- Heading -->
+   
+    
     <h2 class="heading">Portfolio</h2>
+    
+      
+
     <!-- Portfolio Content -->
     <div class="portfolio-content">
+    <?php foreach ($projets as $projet): ?>
         <div class="portfolio-box">
-            <img src="" alt="" class="portfolio-img">
+          <article>
+            <img src="<?=$projet['image_desc']?>" alt="" class="portfolio-img">
             <!-- Overlay -->
             <div class="portfolio-overlay">
-                <h2>Web Development</h2>
-                <a href="#">
+                <h2><?=$projet['titre']?></h2>
+                
+                <a href="index.php?action=Projet&id=<?=$projet['id']?>" >
                     <i class='bx bx-link-alt' ></i>
                 </a>
             </div>
         </div>
-        <div class="portfolio-box">
-            <img src="" alt="" class="portfolio-img">
-            <!-- Overlay -->
-            <div class="portfolio-overlay">
-                <h2>Intégration d'une maquette</h2>
-                <a href="#">
-                    <i class='bx bx-link-alt' ></i>
-                </a>
-            </div>
-        </div>
-        <div class="portfolio-box">
-            <img src="" alt="" class="portfolio-img">
-            <!-- Overlay -->
-            <div class="portfolio-overlay">
-                <h2>Wordpress site</h2>
-                <a href="#">
-                    <i class='bx bx-link-alt' ></i>
-                </a>
-            </div>
-        </div>
-        <div class="portfolio-box">
-            <img src="" alt="" class="portfolio-img">
-            <!-- Overlay -->
-            <div class="portfolio-overlay">
-                <h2>Location de vélo</h2>
-                <a href="#">
-                    <i class='bx bx-link-alt' ></i>
-                </a>
-            </div>
-        </div>
-    </div>
+        </article>
+    <?php endforeach;?>
 </section>
+
+
+
 
 <!-- Contact Form -->
 <section class="contact container" id="contact">

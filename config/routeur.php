@@ -20,7 +20,7 @@ class Routeur
          try {
              if (isset($_GET['action'])) {
  
-                 // ACTION POUR OBTENIR LES BILLETS
+                 // ACTION POUR OBTENIR LES PROJETS
                  if ($_GET['action'] == 'Projet') {
                      if (isset($_GET['id'])) {
                          $idProjet = intval($this->getParametre($_GET, 'id'));

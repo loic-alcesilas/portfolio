@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Loïc</title>
+    <title><?=$titre?></title>
     <!-- Link To CSS -->
     <link rel="stylesheet" href="public/css/style.css">
     <!-- Box Icons -->
@@ -36,22 +36,30 @@
             </div>
         </div>
     </header>
-
+    <?=$contenu?>   <!-- Élément spécifique -->
     <!-- Footer -->
-    <section class="footer container" id="footer">
-        <div class="social">
-            <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope'></i></a>
-            <a href="#"><i class='bx bxl-twitter'></i></a>
-            <a href="#"><i class='bx bxl-linkedin-square'></i></a>
-            <a href="#"><i class="bx bxl-github"></i></a>
-        </div>
-        <!-- Footer Links -->
-        <div class="footer-links">
-            <a href="#">Politique de confidentialité</a>
-            <a href="#">Conditions d'utilisations</a>
-        </div>
-        <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
-    </section>
+<section class="footer container" id="footer">
+  <div class="social">
+      <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope' ></i></a>
+      <a href="#"><i class='bx bxl-twitter'></i></a>
+      <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+      <a href="#"><i class="bx bxl-github"></i></a>
+  </div>
+  <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
+</section>
+<!-- Email Js Link -->
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+     emailjs.init("mDhaxqqU7IJs7LbL1");
+  })();
+</script>
+<!-- Sweet Alert Js Link -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Js Link -->
+  <script src="public/js/main.js"></script>
+  <script src="public/js/contact.js"></script>
 </body>
-
 </html>

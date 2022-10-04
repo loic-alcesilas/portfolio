@@ -9,7 +9,7 @@ class ProjetsManager extends Modele
     // Renvoie la liste de tous les billets, triés par identifiant décroissant
     public function getProjets()
     {
-        $sql = 'SELECT id, titre, contenue, image_desc FROM projets ORDER BY id desc';
+        $sql = 'SELECT id, titre, desc_img, image_desc FROM projets ORDER BY id desc';
         $projets = $this->executerRequete($sql);
         return $projets;
     }
@@ -17,7 +17,7 @@ class ProjetsManager extends Modele
     // Renvoie les informations sur un projet
     public function getOneProjet($idProjet)
     {
-        $sql = 'select id, titre, contenue, image_desc, image_projet'
+        $sql = 'select id, titre, desc_img, desc_img2, image_desc, image_projet, image_projet2, contenue'
             . ' from projets'
             . ' where id=?';
         $projet = $this->executerRequete($sql, array($idProjet));
