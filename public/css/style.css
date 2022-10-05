@@ -442,7 +442,8 @@ header{
 }
 
 .projet-competence {
-  padding: 4rem;
+  padding: 3rem;
+  text-align: left;
 }
 
 .projet-text {
@@ -454,7 +455,7 @@ header{
   color: var(--main-color);
   text-transform: uppercase;
   margin-bottom: 2rem;
-  padding-top: 4rem;
+  padding-top: 2rem;
 }
 
 .headProjet {

@@ -144,10 +144,6 @@
         </article>
     <?php endforeach;?>
 </section>
-
-
-
-
 <!-- Contact Form -->
 <section class="contact container" id="contact">
   <!-- Heading -->

@@ -14,15 +14,19 @@
 </head>
 
 <body>
+      <!-- Scroll Top -->
+  <a href="#home" class="scroll-top">
+    <i class='bx bx-up-arrow-alt'></i>
+  </a>
     <!-- Header -->
     <header>
         <!-- Nav -->
         <div class="nav container">
             <!-- Logo -->
-            <a href="#" class="logo">Loic</a>
+            <a href="index.php" class="logo">Loic</a>
             <!-- Navbar -->
             <ul class="navbar">
-                <li><a href="#home" class="nav-link">Acceuil</a></li>
+                <li><a href="index.php" class="nav-link">Acceuil</a></li>
                 <li><a href="#about" class="nav-link">A propos</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#portfolio" class="nav-link">Portfolio</a></li>

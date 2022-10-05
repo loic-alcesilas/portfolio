@@ -1,5 +1,8 @@
 <?php $this->titre = "Portfolio - " . $projet['titre']; ?>
-
+ <!-- Scroll Top -->
+ <a href="#home" class="scroll-top">
+    <i class='bx bx-up-arrow-alt'></i>
+  </a>
 <section class="vueProjet" id="fadeVue">
     <h2 class="headProjet"><?= $projet['titre'] ?></h2>
     <h3 class="sous-titre">Image du projet</h3>
@@ -24,7 +27,11 @@
     </div>
     <div class="projet-competence">
     <div class="projet-text">
+        <h3 class="sous-titre">En détails</h3>
         <p><?= $projet['contenue'] ?></p>
-
+        <h3 class="sous-titre">Compétence acquise</h3>
+        <ul>
+        <li><?=$projet['competence']?></li>
+    </ul>
     </div>
 </section>

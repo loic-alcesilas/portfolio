@@ -17,7 +17,7 @@ class ProjetsManager extends Modele
     // Renvoie les informations sur un projet
     public function getOneProjet($idProjet)
     {
-        $sql = 'select id, titre, desc_img, desc_img2, image_desc, image_projet, image_projet2, contenue'
+        $sql = 'select id, titre, desc_img, desc_img2, image_desc, image_projet, image_projet2, contenue, competence'
             . ' from projets'
             . ' where id=?';
         $projet = $this->executerRequete($sql, array($idProjet));
@@ -29,6 +29,7 @@ class ProjetsManager extends Modele
         else {
             throw new \Exception("Aucun projet ne correspond à l'identifiant '$idProjet'");
         }
+        
     }
 
     
