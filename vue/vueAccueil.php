@@ -29,9 +29,9 @@
       <ul class="navbar">
         <li><a href="#home" class="nav-link">Acceuil</a></li>
         <li><a href="#about" class="nav-link">A propos</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="index.php?action=signadmin" class="nav-link">Inscription</a></li>
       </ul>
       <!-- Menu Icon -->
       <div class="menu-icon">

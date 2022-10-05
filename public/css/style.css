@@ -50,7 +50,8 @@ li{
     width: 100%;
 }
 
-  /* HEADER */
+/********************** HEADER ***************/
+/**********************          ***************/
 
 header{
     position: fixed;
@@ -93,7 +94,9 @@ header{
   transition: 0.3s all linear;
 }
 
-/* MENU ICON */
+/********************** MENU ICON ***************/
+/**********************            ***************/
+
 .menu-icon{
     display: none;
     flex-direction: column;
@@ -121,7 +124,8 @@ header{
     transform: rotate(45deg) translate(-5px,-5px);
 }
 
-  /* HOME */
+  /********************** HOME ***************/
+/**********************        ***************/
 
 .home-img{
   width: 180px;
@@ -214,7 +218,10 @@ header{
   transition: 0.3s all linear;
 }
 
-/* HEADING */
+
+/********************** HEADING ***************/
+/**********************            ***************/
+
 .heading{
     font-size: 5rem;
     text-transform: uppercase;
@@ -264,7 +271,9 @@ header{
     margin-bottom: 1.5rem;
 }
 
-  /* SERVICE */
+/********************** SERVICE***************/
+/**********************        ***************/
+
 .services-content{
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -301,7 +310,9 @@ header{
     font-size: 0.9rem;
 }
 
-/* PORTFOLIO */
+/********************** PORTFOLIO SECTION***************/
+/**********************                  ***************/
+
 .portfolio-content{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -354,7 +365,11 @@ header{
   transition: 0.3s all ease ;
 }
 
-/* CONTACT FORM */
+
+/********************** CONTACT FORM ***************/
+/**********************            ***************/
+
+
 .contact-form{
   max-width: 600px;
   margin: auto;
@@ -385,7 +400,11 @@ header{
   background: #546eff;
   transition: 0.3s all linear;
 }
-/* FOOTER */
+
+
+/********************** FOOTER***************/
+/**********************       ***************/
+
 .footer{
   display: flex;
   align-items: center;
@@ -411,7 +430,9 @@ header{
   transition: 0.3s all linear;
 }
 
-/* Scroll Top */
+/********************** SCROLL TOP ***************/
+/**********************            ***************/
+
 .scroll-top{
   position: fixed;
   bottom: -100%;
@@ -433,7 +454,8 @@ header{
   transition: 0.3s;
 }
 
-/********************** VUE SUR UN PROJET ***************/
+/********************** VUE SUR UN PROJET***************/
+/**********************                   ***************/
 
 #projet {
   max-width: 100%;
@@ -523,7 +545,90 @@ header{
   }
 }
 
-/*********************** RESPONSIVE DESIGN **************/
+/********************** FORM INSCRIPTION ***************/
+/**********************                  ***************/
+
+.formConnexion {
+  position: relative;
+  margin: auto;
+  background-color: white;
+  padding: 30px 120px 120px 120px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.btn-sign {
+  padding: 13px 65px 13px 65px;
+  border: none;
+  letter-spacing: 0.7px;
+  top: 60px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: var(--main-color);
+  border-radius: 40px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inputCo {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px;
+  outline: none;
+  border-bottom: 2px solid #adadad;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  position: relative;
+  top: 30px;
+}
+
+
+.back {
+  position: relative;
+  margin: auto;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--body-color);
+  width: 100%;
+  top: 80px;
+}
+
+.fondco {
+  background-color: var(--body-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+
+/********************** RESPONSIVE DESIGN ***************/
+/**********************                   ***************/
 
 @media (max-width:990px){
   .container{

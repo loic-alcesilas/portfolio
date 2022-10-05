@@ -4,7 +4,7 @@ namespace OpenClassrooms\Portfolio\Modele; // La classe sera dans ce namespace
 
 require_once "Config/modele.php";
 
-class UtilisateurManager extends Modele
+class AdminManager extends Modele
 {
     public function getAdmin($pseudo)
     {
@@ -16,7 +16,7 @@ class UtilisateurManager extends Modele
 
     }
 
-    public function ajouterUtilisateur($pseudo, $pass)
+    public function ajouterAdmin($pseudo, $pass)
     {
         $sql = 'INSERT into admin(pseudo, pass)'
             . ' values(?, ?)';
