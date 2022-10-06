@@ -37,6 +37,9 @@ class Routeur
                     }
                 }
 
+                
+            
+
                 //// PARTIE ADMIN LOGIN /////
 
                 // ACTION POUR INSCRIRE ADMIN DANS LA BDD
@@ -66,6 +69,21 @@ class Routeur
 
                 }
 
+                    // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
+                    else if ($_GET['action'] == 'vueProjet') {
+
+                        session_start();
+                        if (!isset($_SESSION['pseudo'])) {
+                            //rediriger l'utilisateur vers la page d'accueil
+                            header("Location: index.php");
+    
+                        } else {
+                            $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
+                            $vue->generer(array());
+                        }
+    
+                    }
+
                 // ACTION POUR ARRIVER SUR LA PAGE ADMINISTRATION
                 else if ($_GET['action'] == 'adminVue') {
                     session_start();
@@ -81,20 +99,6 @@ class Routeur
 
                  //// PARTIE CRUD AJOUTPROJET /////
 
-                // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
-                else if ($_GET['action'] == 'ajout') {
-
-                    session_start();
-                    if (!isset($_SESSION['pseudo'])) {
-                        //rediriger l'utilisateur vers la page d'accueil
-                        header("Location: index.php");
-
-                    } else {
-                        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
-                        $vue->generer(array());
-                    }
-
-                }
                   // ACTION POUR POSTER LE NOUVEAU PROJET
                 else if ($_GET['action'] == 'ajoutProjet') {
 
@@ -107,11 +111,12 @@ class Routeur
                         $titre = $this->getParametre($_POST, 'titre');
                         $image_desc = $this->getParametre($_POST, 'image_desc');
                         $image_projet = $this->getParametre($_POST, 'image_projet');
-                        $imageprojet2 = $this->getParametre($_POST, 'imageprojet2');
+                        $image_projet2 = $this->getParametre($_POST, 'image_projet2');
                         $desc_img = $this->getParametre($_POST, 'desc_img');
+                        $desc_img2 = $this->getParametre($_POST, 'desc_img2');
                         $contenue = $this->getParametre($_POST, 'contenue');
                         $competence = $this->getParametre($_POST, 'competence');
-                        $this->ctrl->vueProjet($image_desc, $titre, $image_projet, $imageprojet2, $desc_img, $desc_img2, $competence, $contenue);
+                        $this->ctrl->vueProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
                     }
 
                 }
