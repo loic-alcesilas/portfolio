@@ -627,6 +627,54 @@ header{
 }
 
 
+/********************** VUE ADMINISTRATION***************/
+/**********************                   ***************/
+
+.allProjet{
+  position: relative;
+  margin: auto;
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  background-color: #201e1e;
+  padding: 120px 0px 120px;
+  border-radius: 40px;
+  justify-content: center;
+
+}
+
+.titreAdmin {
+  font-size: 12px;
+  width: 5%;
+}
+
+td {
+  border: 3px groove var(--main-color);
+  padding: 17px;
+  border-radius: 6px;
+}
+
+
+.dashboard {
+  margin-top: 150px;
+}
+
+#edit {
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.bxs-plus-circle::before{
+  font-size: 35px;
+  color: green;
+}
+
+
+#del {
+  color: red;
+  font-size: 18px;
+}
+
 /********************** RESPONSIVE DESIGN ***************/
 /**********************                   ***************/
 
