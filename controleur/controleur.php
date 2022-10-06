@@ -37,6 +37,18 @@ class Controleur
     }
 
 
+    //affiche le nouveau projet
+    public function vueProjet($image_desc, $titre, $image_projet, $imageprojet2, $desc_img, $desc_img2, $competence, $contenue)
+    {
+        $ajouterProjet = $this->modeleProjets->insertProjet($image_desc, $titre, $image_projet, $imageprojet2, $desc_img, $desc_img2, $competence, $contenue);
+        if ($ajouterProjet) {
+            header('Location: index.php?action=adminVue');
+
+        }
+        // Actualisation de l'affichage du billet
+        throw new \Exception('Impossible d\'ajouter le projet');
+    }
+
 
     //// PARTIE ADMIN /////
 
@@ -88,6 +100,7 @@ class Controleur
         header('Location: index.php');
     }
 
+    //// PARTIE  /////
 
 
 

@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="public/css/style.css">
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- tiny mce -->
+    <script src="https://cdn.tiny.cloud/1/j7qj83cn44023cf2pic6ye20z1lfxozuoo80452dlkigamzo/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+          tinymce.init({
+          selector: 'textarea#tinymce',
+          plugins: ['lists link image charmap anchor'],
+          toolbar: 'undo redo | formatselect | ' +
+          'bold italic backcolor | alignleft aligncenter ' +
+          'alignright alignjustify | bullist numlist outdent indent | ' +
+          'removeformat | help',
+          });
+      </script>
 
 </head>
 
@@ -72,5 +84,6 @@
 <!-- Js Link -->
   <script src="public/js/main.js"></script>
   <script src="public/js/contact.js"></script>
+  <script src="public/js/tinymce.js"></script>
 </body>
 </html>

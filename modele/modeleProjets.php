@@ -32,5 +32,14 @@ class ProjetsManager extends Modele
         
     }
 
+      // Ajoute les données du Projet dans la table associée
+      public function insertProjet($image_desc, $titre, $image_projet, $imageprojet2, $desc_img, $desc_img2, $competence, $contenue)
+      {
+          $sql = 'INSERT into projets(image_desc, titre, image_projet, imageprojet2, desc_img, desc_img2, competence, contenue)';
+             
+          $ajoutProjet = $this->executerRequete($sql, array($image_desc, $titre, $image_projet, $imageprojet2, $desc_img, $desc_img2, $competence, $contenue));
+          return $ajoutProjet;
+      }
+
     
 }

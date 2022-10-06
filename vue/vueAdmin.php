@@ -5,7 +5,7 @@
     <table class="allProjet">
         <tr>
             <td>TITRE PROJETS</td>
-            <td>  <a href=""><i class='bx bxs-plus-circle' ></i> </a></td>
+            <td>  <a href="index.php?action=ajout"><i class='bx bxs-plus-circle' ></i> </a></td>
         </tr>
     <?php foreach ($projets as $projet) : ?>
         <tr>
@@ -17,5 +17,4 @@
         </tr>
     <?php endforeach; ?>
     </table>
-    
 </section>
