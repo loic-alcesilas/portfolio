@@ -9,7 +9,7 @@ class ProjetsManager extends Modele
     // Renvoie la liste de tous les billets, triés par identifiant décroissant
     public function getProjets()
     {
-        $sql = 'SELECT id, titre, desc_img, image_desc FROM projets ORDER BY id desc';
+        $sql = 'SELECT id, titre, image_desc FROM projets ORDER BY id desc';
         $projets = $this->executerRequete($sql);
         return $projets;
     }
@@ -25,22 +25,26 @@ class ProjetsManager extends Modele
 
             // if ($billet->rowCount() == 1) {
             return $projet->fetch();
-        }
-        else {
+        } else {
             throw new \Exception("Aucun projet ne correspond à l'identifiant '$idProjet'");
         }
-        
     }
 
-      // Ajoute les données du Projet dans la table associée
-      public function insertProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
-      {
-          $sql = 'INSERT into projets(image_desc, titre, image_projet, image_projet2, desc_img, desc_img2, competence, contenue)'
-          . ' values(?, ?, ?, ?, ?, ?, ?, ?)';
-             
-          $ajoutProjet = $this->executerRequete($sql, array($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue));
-          return $ajoutProjet;
-      }
+    // Ajoute les données du Projet dans la table associée
+    public function insertProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
+    {
+        $sql = 'INSERT into projets(image_desc, titre, image_projet, image_projet2, desc_img, desc_img2, competence, contenue)'
+            . ' values(?, ?, ?, ?, ?, ?, ?, ?)';
 
-    
+        $ajoutProjet = $this->executerRequete($sql, array($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue));
+        return $ajoutProjet;
+    }
+
+    //  Supprime un projet de la base de données
+    public function deleteProjet($idProjet)
+    {
+        $sql = 'DELETE FROM `projets` WHERE `projets`.`id` = ?';
+        $suppression = $this->executerRequete($sql, array($idProjet));
+        return $suppression;
+    }
 }

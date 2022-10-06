@@ -17,7 +17,59 @@ class Controleur
         $this->modeleAdmin = new \OpenClassrooms\Portfolio\Modele\AdminManager();
     }
 
-     //// PARTIE ADMIN /////
+    //// PARTIE PROJET /////
+
+    // Affiche la liste de tous les projets du site
+    public function accueil()
+    {
+        $projets = $this->modeleProjets->getProjets();
+        require 'Vue/vueAccueil.php';
+
+    }
+
+    // Affiche les détails sur un billet
+    public function projet($idProjet)
+    {
+        $projet = $this->modeleProjets->getOneProjet($idProjet);
+        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Projet");
+        $vue->generer(array('projet' => $projet));
+    }
+
+     // Affiche la page pour ajouter un projet
+     public function ajoutProjet()
+     {
+         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
+         $vue->generer(array());
+     }
+
+    //affiche le nouveau projet
+    public function vueProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
+    {
+        $ajouterProjet = $this->modeleProjets->insertProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
+        if ($ajouterProjet) {
+            header('Location: index.php?action=adminVue');
+
+        }
+        // Actualisation de l'affichage du projet
+        throw new \Exception('Impossible d\'ajouter le projet');
+    }
+
+    // Supprime les données liées à un projet de la bdd
+    public function supprimer($idProjet)
+    {
+        $projet = $this->modeleProjets->getProjets($idProjet);
+        $supprimer = $this->modeleProjets->deleteProjet($idProjet);
+        if ($supprimer) {
+            header('Location: index.php?action=adminVue');
+
+        }
+        // Actualisation de l'affichage
+        throw new \Exception('Impossible de supprimer le projet');
+
+    }
+
+
+    //// PARTIE ADMIN /////
 
 
     // Ajoute l'admin à la base de données
@@ -66,47 +118,6 @@ class Controleur
 
         header('Location: index.php');
     }
-
-    //// PARTIE PROJET /////
-
-
-    // Affiche la liste de tous les projets du site
-    public function accueil()
-    {
-        $projets = $this->modeleProjets->getProjets();
-        require 'Vue/vueAccueil.php';
-
-    }
-
-    // Affiche les détails sur un billet
-    public function projet($idProjet)
-    {
-        $projet = $this->modeleProjets->getOneProjet($idProjet);
-        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Projet");
-        $vue->generer(array('projet' => $projet));
-    }
-
-     // Affiche la page pour ajouter un billet
-     public function ajoutProjet()
-     {
-         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
-         $vue->generer(array());
-     }
-
-    //affiche le nouveau projet
-    public function vueProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
-    {
-        $ajouterProjet = $this->modeleProjets->insertProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
-        if ($ajouterProjet) {
-            header('Location: index.php?action=adminVue');
-
-        }
-        // Actualisation de l'affichage du billet
-        throw new \Exception('Impossible d\'ajouter le projet');
-    }
-
-
-   
 
     //// PARTIE  /////
 

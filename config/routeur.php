@@ -17,7 +17,6 @@ class Routeur
     // Traite une requête entrante
     public function routerRequete()
     {
-
         try {
             if (isset($_GET['action'])) {
 
@@ -37,8 +36,20 @@ class Routeur
                     }
                 }
 
-                
-            
+                //ACTOIN POUR SUPPRIMMER UN PROJET
+                else if ($_GET['action'] == 'delete') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $idProjet = $this->getParametre($_GET, 'id');
+                        $this->ctrl->supprimer($idProjet);
+                    }
+
+                }
 
                 //// PARTIE ADMIN LOGIN /////
 
@@ -69,21 +80,6 @@ class Routeur
 
                 }
 
-                    // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
-                    else if ($_GET['action'] == 'vueProjet') {
-
-                        session_start();
-                        if (!isset($_SESSION['pseudo'])) {
-                            //rediriger l'utilisateur vers la page d'accueil
-                            header("Location: index.php");
-    
-                        } else {
-                            $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
-                            $vue->generer(array());
-                        }
-    
-                    }
-
                 // ACTION POUR ARRIVER SUR LA PAGE ADMINISTRATION
                 else if ($_GET['action'] == 'adminVue') {
                     session_start();
@@ -99,6 +95,20 @@ class Routeur
 
                  //// PARTIE CRUD AJOUTPROJET /////
 
+                // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
+                else if ($_GET['action'] == 'vueProjet') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
+                        $vue->generer(array());
+                    }
+
+                }
                   // ACTION POUR POSTER LE NOUVEAU PROJET
                 else if ($_GET['action'] == 'ajoutProjet') {
 
