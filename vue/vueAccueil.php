@@ -75,9 +75,9 @@
     <div class="about-content">
       <div class="about-data">
         <span>A PROPOS DE MOI</span>
-        <h2>Developeur Web junior</h2>
+        <h2>Dévelopeur Web junior</h2>
         <a href="" class="btn" download="">
-          Télecharger cv
+          Télècharger cv
           <i class='bx bx-download'></i>
         </a>
       </div>
@@ -168,6 +168,16 @@
   <div class="footer-links">
       <a href="#">Politique de confidentialité</a>
       <a href="#">Conditions d'utilisations</a>
+      <?php 
+      if (isset($_SESSION['pseudo']))
+      {
+        echo '<a href="index.php?action=adminVue">Administration</a>';
+        echo '<a href="index.php?action=logout">logout</a>';
+      }else
+      {
+        echo '<a href="index.php?action=loginVueAdmin">Admin</a>';
+      }
+      ?>
   </div>
   
   <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>

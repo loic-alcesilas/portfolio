@@ -4,6 +4,7 @@ namespace OpenClassrooms\Portfolio\Controleur; // La classe sera dans ce namespa
 
 require_once 'Modele/modeleProjets.php';
 require_once 'Modele/modeleAdmin.php';
+require_once 'Config/vue.php';
 
 class Controleur 
 {
@@ -41,7 +42,7 @@ class Controleur
 
 
     // Ajoute l'admin à la base de données
-    public function adminAJout($pseudo, $pass)
+    public function adminAjout($pseudo, $pass)
     {
         $admin = $this->modeleAdmin->ajouterAdmin($pseudo, $pass);
         if ($admin) {
@@ -59,6 +60,34 @@ class Controleur
         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Admin");
         $vue->generer(array('projets' => $projets));
     }
+
+    public function authentificationAdmin($pseudo, $resultat)
+    {
+
+        $admin = $this->modeleAdmin->getAdmin($pseudo);
+        $isPasswordCorrect = password_verify($resultat, $admin['pass']);
+
+        if ($isPasswordCorrect) {
+            session_start();
+            $_SESSION['pseudo'] = $pseudo;
+            header('Location: index.php');
+        } else {
+            throw new \Exception("Mauvais identifiant ou mot de passe !");
+
+        }
+    }
+
+    // Clotûre la session
+    public function logout()
+    {
+        session_start();
+        // Suppression des variables de session et de la session
+        $_SESSION = array();
+        session_destroy();
+
+        header('Location: index.php');
+    }
+
 
 
 

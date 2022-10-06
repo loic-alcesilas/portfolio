@@ -40,7 +40,14 @@
             </div>
         </div>
     </header>
+
+
+
     <?=$contenu?>   <!-- Élément spécifique -->
+
+
+
+    
     <!-- Footer -->
 <section class="footer container" id="footer">
   <div class="social">

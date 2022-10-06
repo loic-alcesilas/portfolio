@@ -34,18 +34,54 @@ class Routeur
                         throw new \Exception("Identifiant de Projet non défini");
                     }
                 }
-                
-                // ACTION POUR INSCRIRE ADMIN DANS LA BDD'
+
+                // ACTION POUR INSCRIRE ADMIN DANS LA BDD
                 else if ($_GET['action'] == 'signin') {
                     $pseudo = $this->getParametre($_POST, 'pseudo');
                     $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-                    $this->ctrl->adminAJout($pseudo, $pass);
+                    $this->ctrl->adminAjout($pseudo, $pass);
                 }
 
-                // ACTION POUR ALLER SUR LA PAGE S'INSCRIRE'
+                // ACTION POUR ALLER SUR LA PAGE S'INSCRIRE
                 else if ($_GET['action'] == 'signadmin') {
                     $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Inscriptionadmin");
                     $vue->generer(array());
+                }
+
+                // ACTION POUR ATTEINDRE LA PAGE CONNEXION ADMIN
+                else if ($_GET['action'] == 'loginVueAdmin') {
+                    require 'Vue/vueConnexion.php';
+
+                }
+
+                 // ACTION POUR CONNECTER ADMIN
+                 else if ($_GET['action'] == 'connexionAdmin') {
+                    $pseudo = $this->getParametre($_POST, 'pseudo');
+                    $resultat = $this->getParametre($_POST, 'pass');
+                    $this->ctrl->authentificationAdmin($pseudo, $resultat);
+
+                }
+
+                // ACTION POUR ARRIVER SUR LA PAGE ADMINISTRATION
+                else if ($_GET['action'] == 'adminVue') {
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $this->ctrl->admin();
+
+                    }
+                }
+
+                // ACTION POUR SE DÉCONNECTER
+                else if ($_GET['action'] == 'logout') {
+
+                    $this->ctrl->logout();
+
+                } else {
+                    throw new \Exception("Action non valide");
                 }
 
 
