@@ -35,6 +35,28 @@ class Controleur
         $vue->generer(array('projet' => $projet));
     }
 
+     //// PARTIE CRUD PROJET /////
+
+    // Affiche la page pour modifier un projet
+    public function changerProjet($idProjet)
+    {
+        $projet = $this->modeleProjets->getOneProjet($idProjet);
+        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("ModifierProjet");
+        $vue->generer(array('projet' => $projet));
+    }
+
+    // Modifie un projet déjà existant
+    public function modifierProjets($idProjet, $image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
+    {
+        $modifier = $this->modeleProjets->modifierProjet($idProjet, $image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
+        if ($modifier) {
+            header('Location: index.php?action=adminVue');
+
+        }
+        throw new \Exception('Impossible de modifier le projet !');
+
+    }
+
      // Affiche la page pour ajouter un projet
      public function ajoutProjet()
      {

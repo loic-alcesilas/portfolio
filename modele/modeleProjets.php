@@ -40,6 +40,15 @@ class ProjetsManager extends Modele
         return $ajoutProjet;
     }
 
+    // Modifie les données du projet dans la table associée
+    public function modifierProjet($idProjet, $image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
+    {
+        $sql = 'UPDATE projets SET titre=?, image_desc=?, image_projet=?, image_projet2=?, desc_img=?, desc_img2=?, contenue=?, competence=? WHERE `projets`.`id` = ?';
+        $modifierProjet = $this->executerRequete($sql, array($idProjet, $image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue));
+ 
+        return $modifierProjet;
+    }   
+
     //  Supprime un projet de la base de données
     public function deleteProjet($idProjet)
     {

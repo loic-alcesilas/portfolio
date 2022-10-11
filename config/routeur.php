@@ -36,20 +36,7 @@ class Routeur
                     }
                 }
 
-                //ACTOIN POUR SUPPRIMMER UN PROJET
-                else if ($_GET['action'] == 'delete') {
-
-                    session_start();
-                    if (!isset($_SESSION['pseudo'])) {
-                        //rediriger l'utilisateur vers la page d'accueil
-                        header("Location: index.php");
-
-                    } else {
-                        $idProjet = $this->getParametre($_GET, 'id');
-                        $this->ctrl->supprimer($idProjet);
-                    }
-
-                }
+ 
 
                 //// PARTIE ADMIN LOGIN /////
 
@@ -93,7 +80,62 @@ class Routeur
                     }
                 }
 
-                 //// PARTIE CRUD AJOUTPROJET /////
+                 //// PARTIE CRUD /////
+
+                //ACTION POUR SUPPRIMMER UN PROJET
+                else if ($_GET['action'] == 'delete') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $idProjet = $this->getParametre($_GET, 'id');
+                        $this->ctrl->supprimer($idProjet);
+                    }
+
+                }
+
+                // ACTION POUR ACCÉDER À LA PAGE DE MODIFICATION D'UN PROJET
+                else if ($_GET['action'] == 'modifierProjet') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $idProjet = $this->getParametre($_GET, 'id');
+                        $this->ctrl->changerProjet($idProjet);
+                    }
+
+                }
+
+                  // ACTION POUR MODIFIER UN PROJET EXISTANT
+
+                  else if ($_GET['action'] == 'modificationProjet') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else { 
+                        
+                        $idProjet = $this->getParametre($_GET, 'id');
+                        $titre = $this->getParametre($_POST, 'titre');
+                        $image_desc = $this->getParametre($_POST, 'image_desc');
+                        $image_projet = $this->getParametre($_POST, 'image_projet');
+                        $image_projet2 = $this->getParametre($_POST, 'image_projet2');
+                        $desc_img = $this->getParametre($_POST, 'desc_img');
+                        $desc_img2 = $this->getParametre($_POST, 'desc_img2');
+                        $contenue = $this->getParametre($_POST, 'contenue');
+                        $competence = $this->getParametre($_POST, 'competence');
+                        $this->ctrl->modifierProjets($titre, $image_desc, $image_projet, $image_projet2, $desc_img, $desc_img2, $contenue, $competence, $idProjet);
+                    }
+
+                }
 
                 // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
                 else if ($_GET['action'] == 'vueProjet') {
@@ -109,6 +151,7 @@ class Routeur
                     }
 
                 }
+
                   // ACTION POUR POSTER LE NOUVEAU PROJET
                 else if ($_GET['action'] == 'ajoutProjet') {
 
