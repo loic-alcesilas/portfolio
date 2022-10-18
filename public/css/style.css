@@ -562,6 +562,114 @@ header{
   }
 }
 
+/********************** VUE SUR UN PROJET***************/
+/********************** PARTIE COMMENTAIRE**************/
+.commentaires {
+  position: relative;
+  right: 400px;
+  font-size: 18px;
+  bottom: 90px;
+}
+
+.enteteCommentaire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+  padding-bottom: 90px;
+}
+
+.listeCommentaires {
+  position: relative;
+  margin: auto;
+  width: 750px;
+  bottom: 165px;
+  margin-bottom: -100px;
+}
+
+.contenuMessage {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 100px;
+  bottom: 90px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+}
+
+.formCommentaire{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.labelCom {
+  position: relative;
+  background-color: white;
+  padding: 3px;
+  top: 33px;
+  left: 26px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #555555;
+}
+
+.labelCom2 {
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  top: 17px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #555555;
+  z-index: 10;
+}
+
+
+.formComContenue {
+width: 700px;
+border: 1px solid #e2e2e2f1;
+padding: 10px;
+padding-left: 10px;
+padding-left: 28px;
+font-family: "poppins";
+font-size: 16px;
+color: #999999;
+height: 180px;
+margin-top: 20px;
+}
+
+.formComPseudo {
+position: relative;
+width: 700px;
+border: 1px solid #e2e2e2f1;
+padding: 10px;
+padding-left: 10px;
+padding-left: 28px;
+font-family: "poppins";
+font-size: 16px;
+color: #999999;
+height: 60px;
+margin-top: 5px;
+}
+
+.commenter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 750px;
+  bottom: 170px;
+}
+
+
 /********************** FORM INSCRIPTION ***************/
 /**********************                  ***************/
 

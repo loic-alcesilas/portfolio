@@ -59,17 +59,6 @@
 
 
 
-    
-    <!-- Footer -->
-<section class="footer container" id="footer">
-  <div class="social">
-      <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope' ></i></a>
-      <a href="#"><i class='bx bxl-twitter'></i></a>
-      <a href="#"><i class='bx bxl-linkedin-square'></i></a>
-      <a href="#"><i class="bx bxl-github"></i></a>
-  </div>
-  <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
-</section>
 <!-- Email Js Link -->
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
