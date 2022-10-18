@@ -4,17 +4,20 @@ namespace OpenClassrooms\Portfolio\Controleur; // La classe sera dans ce namespa
 
 require_once 'Modele/modeleProjets.php';
 require_once 'Modele/modeleAdmin.php';
+require_once 'Modele/modeleUtilisateur.php';
 require_once 'Config/vue.php';
 
 class Controleur 
 {
     private $modeleProjets;
     private $modeleAdmin;
+    private $modeleUtilisateur;
 
     public function __construct()
     {
         $this->modeleProjets = new \OpenClassrooms\Portfolio\Modele\ProjetsManager();
         $this->modeleAdmin = new \OpenClassrooms\Portfolio\Modele\AdminManager();
+        $this->modeleUtilisateur = new \OpenClassrooms\Portfolio\Modele\UtilisateurManager();
     }
 
     //// PARTIE PROJET /////
@@ -93,7 +96,6 @@ class Controleur
 
     //// PARTIE ADMIN /////
 
-
     // Ajoute l'admin à la base de données
     public function adminAjout($pseudo, $pass)
     {
@@ -121,6 +123,7 @@ class Controleur
         $isPasswordCorrect = password_verify($resultat, $admin['pass']);
 
         if ($isPasswordCorrect) {
+            
             session_start();
             $_SESSION['pseudo'] = $pseudo;
             header('Location: index.php');
@@ -131,18 +134,69 @@ class Controleur
     }
 
     // Clotûre la session
-    public function logout()
+    public function logoutAdmin()
     {
         session_start();
         // Suppression des variables de session et de la session
         $_SESSION = array();
         session_destroy();
-
         header('Location: index.php');
     }
 
-    //// PARTIE  /////
+    //// PARTIE UTILISATEUR /////
 
+    // Affiche la page pour aller a laconnexion ou inscription
+    public function VueUtilisateur()
+    {
+        $vue = new \OpenClassrooms\portfolio\Vue\Vue("Utilisateur");
+        $vue->generer(array());
+    }
+
+        
+
+    public function authentification($nom, $resultat)
+    {
+
+        $user = $this->modeleUtilisateur->getUser($nom);
+        $isPasswordCorrect = password_verify($resultat, $user['mdp']);
+
+        if ($isPasswordCorrect) {
+            
+            session_name('user');
+            session_start();
+            $_SESSION['nom'] = $nom;
+            header('Location: index.php?action=VueUtilisateur');
+            
+        } else {
+            throw new \Exception("Mauvais identifiant ou mot de passe !");
+
+        }
+    }
+    
+    
+    // Ajoute un utilisateur à la base de données
+    public function utilisateur($nom, $mdp)
+    {
+        $utilisateur = $this->modeleUtilisateur->ajouterUtilisateur($nom, $mdp);
+        if ($utilisateur) {
+            header('Location: index.php');
+
+        }
+        // Actualisation de l'affichage
+        throw new \Exception('Impossible d\'ajouter l\'utilisateur');
+    }
+
+     // Clotûre la session
+     public function logoutUser()
+     {
+        session_name('user');
+        session_start();
+        // Suppression des variables de session et de la session
+         $_SESSION = array();
+         session_destroy();
+         header('Location: index.php');
+     }
+ 
 
 
 }

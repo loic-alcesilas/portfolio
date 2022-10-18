@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php 
+
+session_start(); ?>
 
 <!doctype html>
 <html lang="fr">
@@ -30,7 +32,7 @@
         <li><a href="#about" class="nav-link">A propos</a></li>
         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="index.php?action=signadmin" class="nav-link">Inscription</a></li>
+        <li> <a href="index.php?action=VueUtilisateur">Inscription/Connexion</a> </li>
       </ul>
       <!-- Menu Icon -->
       <div class="menu-icon">
@@ -167,11 +169,11 @@
   <div class="footer-links">
       <a href="#">Politique de confidentialité</a>
       <a href="#">Conditions d'utilisations</a>
-      <?php 
+      <?php
       if (isset($_SESSION['pseudo']))
       {
         echo '<a href="index.php?action=adminVue">Administration</a>';
-        echo '<a href="index.php?action=logout">logout</a>';
+        echo '<a href="index.php?action=logoutAdmin">logout</a>';
       }else
       {
         echo '<a href="index.php?action=loginVueAdmin">Admin</a>';

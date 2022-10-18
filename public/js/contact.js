@@ -18,7 +18,7 @@ function validate() {
 validate();
 
 function sendmail(name, email, msg) {
-  // User Your Service id and template id here
+  // Service id et template id
   emailjs.send("service_5jc52fb", "template_c2k84v7", {
     from_name: email,
     to_name: name,

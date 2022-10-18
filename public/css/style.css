@@ -94,6 +94,21 @@ header{
   transition: 0.3s all linear;
 }
 
+.navbar li a {
+  font-size: 0.94rem;
+  padding: 4px 8px;
+  border-radius: 0.2rem;
+  color: var(--bg-color);
+
+}
+
+.navbar li a:hover {
+  color: var(--main-color);
+  background: var(--container-color);
+  transition: 0.3s all linear;
+
+}
+
 /********************** MENU ICON ***************/
 /**********************            ***************/
 

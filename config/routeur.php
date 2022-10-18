@@ -55,7 +55,7 @@ class Routeur
 
                 // ACTION POUR ATTEINDRE LA PAGE CONNEXION ADMIN
                 else if ($_GET['action'] == 'loginVueAdmin') {
-                    require 'Vue/vueConnexion.php';
+                    require 'Vue/vueConnexionAdmin.php';
 
                 }
 
@@ -174,17 +174,57 @@ class Routeur
 
                 }
 
-                // ACTION POUR SE DÉCONNECTER
-                else if ($_GET['action'] == 'logout') {
+                //// PARTIE UTILISATEUR /////
 
-                    $this->ctrl->logout();
+                // ACTION POUR INSCRIRE USER DANS LA BDD
+                else if ($_GET['action'] == 'signinUser') {
+                    $nom = $this->getParametre($_POST, 'nom');
+                    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+                    $this->ctrl->utilisateur($nom, $mdp);
+                }
+
+                // ACTION POUR ALLER SUR LA PAGE S'INSCRIRE
+                else if ($_GET['action'] == 'signinVueUser') {
+                    $vue = new \OpenClassrooms\Portfolio\Vue\Vue("InscriptionUser");
+                    $vue->generer(array());
+                }
+
+                // ACTION POUR ATTEINDRE LA PAGE CONNEXION USER
+                else if ($_GET['action'] == 'loginVueUser') {
+                    require 'Vue/vueConnexionUser.php';
+
+                }
+
+                 // ACTION POUR CONNECTER USER
+                 else if ($_GET['action'] == 'connexionUser') {
+                    $nom = $this->getParametre($_POST, 'nom');
+                    $resultat = $this->getParametre($_POST, 'mdp');
+                    $this->ctrl->authentification($nom, $resultat);
+
+                }
+                
+                  // ACTION POUR aller sur la pade connexion/inscription 
+                  else if ($_GET['action'] == 'VueUtilisateur') {
+
+                    $this->ctrl->VueUtilisateur();
+
+                } 
+                
+                  // ACTION POUR SE DÉCONNECTER
+                  else if ($_GET['action'] == 'logoutAdmin') {
+
+                    $this->ctrl->logoutAdmin();
+
+                } 
+
+                // ACTION POUR SE DÉCONNECTER
+                else if ($_GET['action'] == 'logoutUser') {
+
+                    $this->ctrl->logoutUser();
 
                 } else {
                     throw new \Exception("Action non valide");
                 }
-
-
-            
 
 
             }

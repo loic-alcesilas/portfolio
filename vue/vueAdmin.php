@@ -1,3 +1,4 @@
+
 <?php $this->titre = "Administration"; ?>
 
 <section class="dashboard">
