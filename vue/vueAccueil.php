@@ -1,7 +1,4 @@
-<?php 
-
-session_start(); ?>
-
+<?php session_start(); ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -14,7 +11,6 @@ session_start(); ?>
   <!-- Box Icons -->
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 <body>
   <!-- Scroll Top -->
   <a href="#home" class="scroll-top">
@@ -99,7 +95,7 @@ session_start(); ?>
     <div class="services-content">
       <div class="services-box">
         <i class='bx bx-code-alt'></i>
-        <h2>développement web</h2>
+        <h2>Développement web</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aliquam exercitationem placeat
           reprehenderit omnis harum.</p>
       </div>
@@ -132,9 +128,9 @@ session_start(); ?>
     <?php foreach ($projets as $projet): ?>
         <div class="portfolio-box">
           <article>
-            <img src="<?=$projet['image_desc']?>" alt="" class="portfolio-img">
+            <img src="<?=$projet['image_desc']?>" alt="" class="portfolio-img" href="index.php?action=Projet&id=<?=$projet['id']?>">
             <!-- Overlay -->
-            <div class="portfolio-overlay">
+            <div class="portfolio-overlay" href="index.php?action=Projet&id=<?=$projet['id']?>">
                 <h2><?=$projet['titre']?></h2>
                 
                 <a href="index.php?action=Projet&id=<?=$projet['id']?>" >

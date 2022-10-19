@@ -58,7 +58,32 @@
     <?=$contenu?>   <!-- Élément spécifique -->
 
 
-
+<!-- Footer -->
+<section class="footer container" id="footer">
+  <div class="social">
+      <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope' ></i></a>
+      <a href="#"><i class='bx bxl-twitter'></i></a>
+      <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+      <a href="#"><i class="bx bxl-github"></i></a>
+  </div>
+  <!-- Footer Links -->
+  <div class="footer-links">
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Conditions d'utilisations</a>
+      <?php
+      if (isset($_SESSION['pseudo']))
+      {
+        echo '<a href="index.php?action=adminVue">Administration</a>';
+        echo '<a href="index.php?action=logoutAdmin">logout</a>';
+      }else
+      {
+        echo '<a href="index.php?action=loginVueAdmin">Admin</a>';
+      }
+      ?>
+  </div>
+  
+  <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
+</section>
 <!-- Email Js Link -->
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">

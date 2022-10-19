@@ -15,6 +15,7 @@ session_start(); ?>
     <section class="fondco">
         <div class="formulaireConnexion">
             <form class="formConnexion" method="post" action="index.php?action=connexionAdmin">
+            <p class="titre-connexion">administration</p>
                 <input class="inputCo" type="text" id="pseudo" placeholder="Pseudo" name="pseudo"><br>
                 <input class="inputCo" type="password" id="pass" placeholder="Mot de passe" name="pass"><br>
                 <input class="btn-sign" type="submit" value="Connexion" id="submit" name="Connexion ›">
@@ -23,5 +24,4 @@ session_start(); ?>
         </div>
     </section>
 </body>
-
 </html>
