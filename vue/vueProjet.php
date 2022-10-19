@@ -23,10 +23,10 @@
     <div class="projet-competence">
         <div class="projet-text">
             <h3 class="sous-titre">En détails</h3>
-            <p><?= $projet['contenue'] ?></p>
+            <p class="projetDesc"><?= $projet['contenue'] ?></p>
             <h3 class="sous-titre">Compétence acquise</h3>
             <ul>
-                <li><?= $projet['competence'] ?></li>
+                <li class="projetDesc"><?= $projet['competence'] ?></li>
             </ul>
         </div>
 </section>
@@ -35,27 +35,32 @@
     <h2 class="headProjet">Commentaires</h2></br>
 </section>
 
-<div class="listeCommentaires">
-    <div class="contenuMessage">
-        <p class='auteur'><?= htmlspecialchars($commentaire['auteur']) ?></p><br>
-        <p class='contenu'><?= htmlspecialchars($commentaire['contenu']) ?></p>
-    </div>
-    <div class="commenter">
-        <div class="entetedescommentaires">
-            <h2 class="headProjet">Laisser le votre !</h2>
-            <!-- Formulaire pour commenter -->
-            <form class="formCommentaire" method="post" action="index.php?action=commenter">
-                <div class="champCom">
-                    <label class="labelCom" for="txtCommentaire">Message</label><br>
-                    <textarea class='formComContenue' id="txtCommentaire" name="contenu" rows="4" placeholder="Votre commentaire ici..." required></textarea>
-                </div><br />
-                <div class="champCom">
-                    <label class="labelCom2" for="auteur">Pseudo</label><br>
-                    <input class='formComPseudo' id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required>
-                </div><br />
-                <input class='formulairecommentaire' type="hidden" name="id" value="">
-                <div class="boutonComs">
-                    <input class="boutonCom" type="submit" value="ENVOYER">
-                </div>
-            </form>
+<?php foreach ($commentaires as $commentaire) : ?>
+    <div class="listeCommentaires">
+        <div class="contenuMessage">
+            <p class='auteur'><span class="span">Ecrit le  :<br> <time><?=$commentaire['date']?></time> par </span><?= htmlspecialchars($commentaire['auteur'])?></p>
+            <p class='contenu'><?= htmlspecialchars($commentaire['contenu']) ?></p>
         </div>
+    </div>
+<?php endforeach; ?>
+
+<div class="commenter">
+    <div class="entetedescommentaires">
+        <h2 class="headProjet">Laisser le votre !</h2>
+        <!-- Formulaire pour commenter -->
+        <form class="formCommentaire" method="post" action="index.php?action=commenter">
+            <div class="champCom">
+                <label class="labelCom" for="txtCommentaire">Message</label><br>
+                <textarea class='formComContenue' id="txtCommentaire" name="contenu" rows="4" placeholder="Votre commentaire ici..." required></textarea>
+            </div><br />
+            <div class="champCom">
+                <label class="labelCom2" for="auteur">Pseudo</label><br>
+                <input class='formComPseudo' id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required>
+            </div><br />
+            <input class='formulairecommentaire' type="hidden" name="id" value="<?= $projet['id'] ?>">
+            <div class="boutonComs">
+                <input class="boutonCom" type="submit" value="ENVOYER">
+            </div>
+        </form>
+    </div>
+</div>

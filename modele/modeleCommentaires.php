@@ -11,8 +11,8 @@ class CommentairesManager extends Modele
     public function getCommentaires($idProjet)
     {
         $sql = 'SELECT com_id AS id, com_AUTEUR AS auteur,'
-            . ' COM_CONTENU as contenu from commentaire'
-            . ' where `projets`.`id` = ?';
+            . ' COM_CONTENUE as contenu, COM_DATE as date from commentaire'
+            . ' where  PROJET_ID= ?';
         $commentaires = $this->executerRequete($sql, array($idProjet));
         return $commentaires;
     }
@@ -20,8 +20,8 @@ class CommentairesManager extends Modele
     // ajoute un commentaire en BDD
     public function ajouterCommentaire($auteur, $contenu, $idProjet)
     {
-        $sql = 'INSERT into commentaire(COM_AUTEUR, COM_CONTENU, PROJET_ID)'
-            . ' values(?, ?, ?)';
+        $sql = 'INSERT into commentaire(COM_DATE, COM_AUTEUR, COM_CONTENUE, PROJET_ID)'
+            . ' values(NOW(), ?, ?, ?)';
         $ajout = $this->executerRequete($sql, array($auteur, $contenu, $idProjet));
         return $ajout;
     }

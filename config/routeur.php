@@ -36,6 +36,15 @@ class Routeur
                     }
                 }
 
+                
+                //  ACTION POUR COMMENTER UN ARTICLE
+                else if ($_GET['action'] == 'commenter') {
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idProjet = $this->getParametre($_POST, 'id');
+                    $this->ctrl->commenter($auteur, $contenu, $idProjet);
+
+                }
  
 
                 //// PARTIE ADMIN LOGIN /////

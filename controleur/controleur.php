@@ -5,6 +5,7 @@ namespace OpenClassrooms\Portfolio\Controleur; // La classe sera dans ce namespa
 require_once 'Modele/modeleProjets.php';
 require_once 'Modele/modeleAdmin.php';
 require_once 'Modele/modeleUtilisateur.php';
+require_once 'Modele/modeleCommentaires.php';
 require_once 'Config/vue.php';
 
 class Controleur 
@@ -12,15 +13,17 @@ class Controleur
     private $modeleProjets;
     private $modeleAdmin;
     private $modeleUtilisateur;
+    private $modeleCommentaires;
 
     public function __construct()
     {
         $this->modeleProjets = new \OpenClassrooms\Portfolio\Modele\ProjetsManager();
         $this->modeleAdmin = new \OpenClassrooms\Portfolio\Modele\AdminManager();
         $this->modeleUtilisateur = new \OpenClassrooms\Portfolio\Modele\UtilisateurManager();
+        $this->modeleCommentaires = new \OpenClassrooms\Portfolio\Modele\CommentairesManager();
     }
 
-    //// PARTIE PROJET /////
+    //// PARTIE PROJET ET COMMENTAIRE /////
 
     // Affiche la liste de tous les projets du site
     public function accueil()
@@ -30,13 +33,28 @@ class Controleur
 
     }
 
-    // Affiche les détails sur un billet
+    // Affiche les détails sur un Projet et Commentaires
     public function projet($idProjet)
     {
         $projet = $this->modeleProjets->getOneProjet($idProjet);
+        $commentaires = $this->modeleCommentaires->getCommentaires($idProjet);
         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Projet");
-        $vue->generer(array('projet' => $projet));
+        $vue->generer(array('projet' => $projet,  'commentaires' => $commentaires));
     }
+
+      // Ajouter un commentaire
+      public function commenter($auteur, $contenu, $idProjet)
+      {
+          $projet = $this->modeleProjets->getOneProjet($idProjet);
+          $commenter = $this->modeleCommentaires->ajouterCommentaire($auteur, $contenu, $idProjet);
+          if ($commenter) {
+              header('Location: index.php?action=Projet&id=' . $projet["id"]);
+  
+          } else {
+              throw new \Exception('Impossible d\'ajouter le commentaire !');
+          }
+  
+      }
 
      //// PARTIE CRUD PROJET /////
 
@@ -79,18 +97,18 @@ class Controleur
         throw new \Exception('Impossible d\'ajouter le projet');
     }
 
-    // Supprime les données liées à un projet de la bdd
+    // Supprime les données liées à un projet avec c'est commentaire de la bdd
     public function supprimer($idProjet)
     {
         $projet = $this->modeleProjets->getProjets($idProjet);
         $supprimer = $this->modeleProjets->deleteProjet($idProjet);
+        $supprimer = $this->modeleProjets->deleteProjetCom($idProjet);
         if ($supprimer) {
             header('Location: index.php?action=adminVue');
 
         }
         // Actualisation de l'affichage
         throw new \Exception('Impossible de supprimer le projet');
-
     }
 
 

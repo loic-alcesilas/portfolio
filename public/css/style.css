@@ -490,15 +490,21 @@ header{
 }
 
 .sous-titre {
-  font-size: 1.5rem;
+  font-size: 18px;
   color: var(--main-color);
   text-transform: uppercase;
   margin-bottom: 2rem;
   padding-top: 2rem;
 }
 
+.projetDesc {
+  font-size: 16px;
+}
+
+
+
 .headProjet {
-  padding-top: 5rem;
+ 
   font-size: 3rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
@@ -582,20 +588,13 @@ header{
 .listeCommentaires {
   position: relative;
   margin: auto;
-  width: 750px;
   bottom: 165px;
-  margin-bottom: -100px;
 }
 
 .contenuMessage {
   display: flex;
   flex-direction: column;
-  position: relative;
-  left: 100px;
-  bottom: 90px;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 15px;
+  padding-left: 230px;
 }
 
 .formCommentaire{
@@ -605,11 +604,20 @@ header{
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-top: 100px;
 }
 
 .labelCom {
   position: relative;
-  background-color: white;
+  background-color: #e8e8e8;
   padding: 3px;
   top: 33px;
   left: 26px;
@@ -620,7 +628,7 @@ header{
 
 .labelCom2 {
   position: relative;
-  background-color: white;
+  background-color: #e8e8e8;
   padding: 10px;
   top: 17px;
   left: 20px;
@@ -632,30 +640,24 @@ header{
 
 
 .formComContenue {
-width: 700px;
-border: 1px solid #e2e2e2f1;
-padding: 10px;
-padding-left: 10px;
-padding-left: 28px;
-font-family: "poppins";
-font-size: 16px;
-color: #999999;
-height: 180px;
-margin-top: 20px;
+  border: 1px solid #807272f2;
+  padding: 10px;
+  padding-left: 28px;
+  font-family: "poppins";
+  font-size: 16px;
+  height: 180px;
+  margin-top: 20px;
 }
 
 .formComPseudo {
-position: relative;
-width: 700px;
-border: 1px solid #e2e2e2f1;
-padding: 10px;
-padding-left: 10px;
-padding-left: 28px;
-font-family: "poppins";
-font-size: 16px;
-color: #999999;
-height: 60px;
-margin-top: 5px;
+  position: relative;
+  border: 1px solid #807272f2;
+  padding: 10px;
+  padding-left: 28px;
+  font-family: "poppins";
+  font-size: 16px;
+  height: 60px;
+  margin-top: 5px;
 }
 
 .commenter {
@@ -669,9 +671,31 @@ margin-top: 5px;
   bottom: 170px;
 }
 
+.auteur {
+  position: relative;
+  font-weight: bold;
+  bottom: 15px;
+  font-size: 19px;
+  margin-bottom: 80px;
+  color: var(--main-color);
+}
 
-/********************** FORM INSCRIPTION ***************/
-/**********************                  ***************/
+.contenu{
+  position: relative;
+  bottom: 90px;
+  font-size: 16px;
+  line-height: 32px;
+  color: white;
+  width: 650px;
+
+}
+
+.span {
+  color: var(--heading-color);
+}
+
+/********************** FORM INSCRIPTION/CONNEXION ***************/
+/**********************                            ***************/
 
 .formConnexion {
   position: relative;
@@ -749,6 +773,15 @@ margin-top: 5px;
   left: 0;
   right: 0;
   overflow: hidden;
+}
+
+.titre-connexion{
+  color: var(--heading-color);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  padding-bottom: 10px;
 }
 
 

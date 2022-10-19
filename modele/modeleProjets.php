@@ -56,4 +56,15 @@ class ProjetsManager extends Modele
         $suppression = $this->executerRequete($sql, array($idProjet));
         return $suppression;
     }
+
+    //  Supprime un commentaire associe a un projet dans la BDD
+    public function deleteProjetCom($idProjet)
+    {
+            $sql = 'DELETE FROM `commentaires` WHERE `projets`.`id` = ?';
+            $suppression = $this->executerRequete($sql, array($idProjet));
+            return $suppression;
+    }
+    
+
+
 }

@@ -16,6 +16,7 @@ session_start(); ?>
     <section class="fondco">
         <div class="formulaireConnexion">
             <form class="formConnexion" method="post" action="index.php?action=connexionUser">
+                <p class="titre-connexion">Vous connectez</p>
                 <input class="inputCo" type="text" id="nom" placeholder="Username" name="nom"><br>
                 <input class="inputCo" type="password" id="mdp" placeholder="Mot de passe" name="mdp"><br>
                 <input class="btn-sign" type="submit" value="Connexion" id="submit" name="Connexion ›">
