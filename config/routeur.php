@@ -20,7 +20,7 @@ class Routeur
         try {
             if (isset($_GET['action'])) {
 
-                //// PARTIE PROJET /////
+                //// PARTIE PROJET ET COMMENTAIRE /////
 
                 // ACTION POUR OBTENIR LES PROJETS
                 if ($_GET['action'] == 'Projet') {

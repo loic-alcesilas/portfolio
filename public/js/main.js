@@ -10,7 +10,7 @@ window.onscroll = () => {
   menu.classList.remove("move");
 };
 
-// Header Background Change On Scroll
+// Header Background change de couleur au scroll
 let header = document.querySelector("header");
  
 window.addEventListener("scroll", () => {

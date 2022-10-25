@@ -17,7 +17,7 @@ session_start(); ?>
             <?php 
             if (isset($_SESSION['nom']))
             {
-                echo '<h2> <a style="color: black; text-transform=uppercase"> Vous etes connecter</a><br> </h2>';
+                echo '<p class="titre-connexion">Vous etes connecter</p>';
                 echo '<li> <a  class="btn-sign" href="index.php?action=logoutUser">Vous déconnecter</a><br> </li>';
             }
             else {

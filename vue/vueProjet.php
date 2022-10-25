@@ -54,20 +54,21 @@ if (!isset($_SESSION['nom'])) {
             <h2 class="headProjet">Laisser le votre !</h2>
             <!-- Formulaire pour commenter -->
             <div class="mask">
-            <form class="formCommentaireMask">
-                <div class="mask2">
-                <div class="champCom">
-                    <label class="labelCom">Message</label><br>
-                    <textarea class='formComContenue' rows="4" placeholder="Votre commentaire ici..." required></textarea>
-                </div><br />
-                <div class="champCom">
-                    <label class="labelCom2">Pseudo</label><br>
-                    <input class='formComPseudo' type="text" placeholder="Votre pseudo" required>
-                </div><br />
-                <div class="boutonComs">
-                    <input class="btn">
-                </div>
-            </form>
+                <form class="formCommentaireMask">
+                <p>Veuillez vous connecter pour écrire un commentaire <a href="index.php?action=VueUtilisateur" class="nav-link">ici</a></p>
+                    <div class="mask2">
+                        <div class="champCom">
+                            <label class="labelCom">Message</label><br>
+                            <textarea class='formComContenue' rows="4" placeholder="Votre commentaire ici..." required></textarea>
+                        </div><br />
+                        <div class="champCom">
+                            <label class="labelCom2">Pseudo</label><br>
+                            <input class='formComPseudo' type="text" placeholder="Votre pseudo" required>
+                        </div><br />
+                        <div class="boutonComs">
+                            <input class="btn" value="ENVOYER">
+                        </div>
+                </form>
             </div>
         </div>
     </div>
@@ -80,20 +81,20 @@ if (!isset($_SESSION['nom'])) {
         <div class="entetedescommentaires">
             <h2 class="headProjet">Laisser le votre !</h2>
             <!-- Formulaire pour commenter -->
-                <form class="formCommentaire" method="post" action="index.php?action=commenter">
-                        <div class="champCom">
-                            <label class="labelCom" for="txtCommentaire">Message</label><br>
-                            <textarea class='formComContenue' id="txtCommentaire" name="contenu" rows="4" placeholder="Votre commentaire ici..." required></textarea>
-                        </div><br />
-                        <div class="champCom">
-                            <label class="labelCom2" for="auteur">Pseudo</label><br>
-                            <input class='formComPseudo' id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required>
-                        </div><br />
-                        <div class="boutonComs">
-                            <input class="formulairecommentaire" type="hidden" name="id" value="<?= $projet["id"] ?>">
-                            <input class="btn" type="submit" value="ENVOYER">
-                        </div>
-                </form>
+            <form class="formCommentaire" method="post" action="index.php?action=commenter">
+                <div class="champCom">
+                    <label class="labelCom" for="txtCommentaire">Message</label><br>
+                    <textarea class='formComContenue' id="txtCommentaire" name="contenu" rows="4" placeholder="Votre commentaire ici..." required></textarea>
+                </div><br />
+                <div class="champCom">
+                    <label class="labelCom2" for="auteur">Pseudo</label><br>
+                    <input class='formComPseudo' id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required>
+                </div><br />
+                <div class="boutonComs">
+                    <input class="formulairecommentaire" type="hidden" name="id" value="<?= $projet["id"] ?>">
+                    <input class="btn" type="submit" value="ENVOYER">
+                </div>
+            </form>
         </div>
     </div>
 <?php

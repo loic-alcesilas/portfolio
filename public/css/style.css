@@ -544,6 +544,7 @@ header{
   -moz-animation: fadein 2s; /* Firefox */
   -webkit-animation: fadein 2s; /* Safari and Chrome */
   -o-animation: fadein 2s; /* Opera */
+  padding-bottom: 20px;
 }
 
 @keyframes fadein {
@@ -690,8 +691,7 @@ header{
   font-size: 16px;
   line-height: 32px;
   color: white;
-  width: 650px;
-
+  max-width: 100%;
 }
 
 .span {
@@ -953,6 +953,11 @@ td {
   }
   .portfolio-box {
     height: 257px;
+    width: 356px;
+  }
+
+  #fadeVue {
+    font-size: 18px;
   }
 }
 
@@ -1004,6 +1009,12 @@ td {
     display: block;
     margin: 1rem 0;
   }
+
+  .contenuMessage {
+    padding-left: 190px;
+  }
+
+ 
 }
 
 
@@ -1023,6 +1034,21 @@ td {
   .about-text p {
     font-size: 0.825rem;
     margin-bottom: 1.3rem;
+  }
+
+  .portfolio-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-left: 90px;
+  }
+
+  .contenuMessage {
+    padding-left: 90px;
+  }
+
+  #fadeVue {
+    font-size: 15px;
   }
  
 }
@@ -1054,11 +1080,37 @@ td {
     grid-template-columns: 1fr;
   }
 
+  .portfolio-content{
+    margin-left: 32px;
+  }
+
   .footer-links {
     flex-direction: column;
     row-gap: 1rem;
   }
+
+  .contenuMessage {
+    padding-left: 40px;
+  }
+
+  .projetDesc{
+    font-size: 14px;
+  }
+
+  .sous-titre{
+    font-size: 16px;
+    padding-top: 3rem;
+  }
+
+  #fadeVue{
+    padding-bottom: 10px;
+  }
+  .headProjet {
+    font-size: 2.5rem;
+  }
 }
+
+
 @media (max-width:325px){
   .navbar{
     width: 100%;
@@ -1066,4 +1118,34 @@ td {
   .portfolio-box {
     height: 190px;
 }
+
+.portfolio-content {
+  width: 300px;
+  margin-left: -25px;
+}
+
+.headProjet {
+  font-size: 2rem;
+}
+
+.formComPseudo{
+  max-width: 288px;
+}
+
+.formCommentaire{
+  max-width: 300px;
+}
+
+#fadeVue{
+  font-size: 13px;
+}
+
+.projetDesc {
+  font-size: 13px;
+}
+
+.sous-titre {
+  font-size: 15px;
+}
+
 }
