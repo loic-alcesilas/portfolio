@@ -35,4 +35,6 @@ class CommentairesManager extends Modele
         $suppression = $this->executerRequete($sql, array($idCommentaire));
         return $suppression;
     }
+
+    
 }

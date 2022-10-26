@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,18 @@
   <title>Portfolio - Loïc</title> <!-- Élément spécifique -->
   <!-- Link To CSS -->
   <link rel="stylesheet" href="public/css/style.css">
+  <!-- Link Swiper CSS CDN-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
   <!-- Box Icons -->
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
   <!-- Scroll Top -->
   <a href="#home" class="scroll-top">
     <i class='bx bx-up-arrow-alt'></i>
   </a>
+
   <!-- Header -->
   <header>
     <!-- Nav -->
@@ -38,6 +43,8 @@
       </div>
     </div>
   </header>
+
+
 
   <!-- Home -->
   <section class="home container" id="home">
@@ -113,84 +120,140 @@
       </div>
     </div>
   </section>
-   <!-- Portfolio -->
-   
-   <section class="portfolio container" id="portfolio">
+  <!-- Portfolio -->
+  <section class="portfolio container" id="portfolio">
     <!-- Heading -->
-   
-    
     <h2 class="heading">Portfolio</h2>
-    
-      
-
     <!-- Portfolio Content -->
     <div class="portfolio-content">
-    <?php foreach ($projets as $projet): ?>
+      <?php foreach ($projets as $projet) : ?>
         <div class="portfolio-box">
           <article>
-            <img src="<?=$projet['image_desc']?>" alt="" class="portfolio-img" href="index.php?action=Projet&id=<?=$projet['id']?>">
+            <img src="<?= $projet['image_desc'] ?>" alt="" class="portfolio-img" href="index.php?action=Projet&id=<?= $projet['id'] ?>">
             <!-- Overlay -->
-            <div class="portfolio-overlay" href="index.php?action=Projet&id=<?=$projet['id']?>">
-                <h2><?=$projet['titre']?></h2>
-                
-                <a href="index.php?action=Projet&id=<?=$projet['id']?>" >
-                    <i class='bx bx-link-alt' ></i>
-                </a>
+            <div class="portfolio-overlay" href="index.php?action=Projet&id=<?= $projet['id'] ?>">
+              <h2><?= $projet['titre'] ?></h2>
+
+              <a href="index.php?action=Projet&id=<?= $projet['id'] ?>">
+                <i class='bx bx-link-alt'></i>
+              </a>
             </div>
         </div>
         </article>
-    <?php endforeach;?>
-</section>
-<!-- Contact Form -->
-<section class="contact container" id="contact">
-  <!-- Heading -->
-  <h2 class="heading">Contact</h2>
+      <?php endforeach; ?>
+  </section>
+
+
+  <!-- SKILL -->
+  <section class="container skill" id="skill">
+    <!-- Heading -->
+    <h2 class="heading">Skills</h2>
+    <!-- Skill Content -->
+    <div class="skill-content swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <!-- skill Box -->
+          <div class="skill-box">
+           <i class='bx bxl-html5'></i>
+            <p class="skill-text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+            </p>
+            <div class="bar">
+            <div class="bar-stat" id="html">
+                <span class="bar-text">HTML - 90%</span>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <!-- skill Box -->
+          <div class="skill-box">
+          <i class='bx bxl-javascript'></i>
+            <p class="skill-text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+            </p>
+            <div class="bar">
+            <div class="bar-stat" id="js">
+            <span class="bar-text">JS - 60%</span>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        
+        <div class="swiper-slide">
+          <!-- Skill Box -->
+          <div class="skill-box">
+          <i class='bx bxl-php' ></i>
+            <p class="skill-text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+            </p>
+            <div class="bar">
+            <div class="bar-stat" id="php">
+            <span class="bar-text">PHP - 70%</span>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
   <!-- Contact Form -->
-  <form action="" class="contact-form" id="contact-form">
+  <section class="contact container" id="contact">
+    <!-- Heading -->
+    <h2 class="heading">Contact</h2>
+    <!-- Contact Form -->
+    <form action="" class="contact-form" id="contact-form">
       <input type="text" placeholder="Votre nom" class="name" required>
       <input type="email" name="" id="" placeholder="Address Email" class="email" required>
       <textarea name="" id="" cols="30" rows="10" placeholder="Rédigez votre message ici..." class="message" required></textarea>
       <input type="submit" value="Envoyer" class="send-btn">
-  </form>
-</section>
-<!-- Footer -->
-<section class="footer container" id="footer">
-  <div class="social">
-      <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope' ></i></a>
+    </form>
+  </section>
+  <!-- Footer -->
+  <section class="footer container" id="footer">
+    <div class="social">
+      <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope'></i></a>
       <a href="#"><i class='bx bxl-twitter'></i></a>
       <a href="#"><i class='bx bxl-linkedin-square'></i></a>
       <a href="#"><i class="bx bxl-github"></i></a>
-  </div>
-  <!-- Footer Links -->
-  <div class="footer-links">
+    </div>
+    <!-- Footer Links -->
+    <div class="footer-links">
       <a href="#">Politique de confidentialité</a>
       <a href="#">Conditions d'utilisations</a>
       <?php
-      if (isset($_SESSION['pseudo']))
-      {
+      if (isset($_SESSION['pseudo'])) {
         echo '<a href="index.php?action=adminVue">Administration</a>';
         echo '<a href="index.php?action=logoutAdmin">logout</a>';
-      }else
-      {
+      } else {
         echo '<a href="index.php?action=loginVueAdmin">Admin</a>';
       }
       ?>
-  </div>
+    </div>
+
+    <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
+  </section>
+  <!-- Email Js Link -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("mDhaxqqU7IJs7LbL1");
+    })();
+  </script>
+  <!-- Sweet Alert Js Link -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Js Link -->
   
-  <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
-</section>
-<!-- Email Js Link -->
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-  (function(){
-     emailjs.init("mDhaxqqU7IJs7LbL1");
-  })();
-</script>
-<!-- Sweet Alert Js Link -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Js Link -->
+  <!-- Link Swiper Js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="public/js/main.js"></script>
   <script src="public/js/contact.js"></script>
 </body>
