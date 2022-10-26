@@ -8,7 +8,7 @@ require_once 'Modele/modeleUtilisateur.php';
 require_once 'Modele/modeleCommentaires.php';
 require_once 'Config/vue.php';
 
-class Controleur 
+class Controleur
 {
     private $modeleProjets;
     private $modeleAdmin;
@@ -30,7 +30,6 @@ class Controleur
     {
         $projets = $this->modeleProjets->getProjets();
         require 'Vue/vueAccueil.php';
-
     }
 
     // Affiche les détails sur un Projet et Commentaires
@@ -42,21 +41,64 @@ class Controleur
         $vue->generer(array('projet' => $projet,  'commentaires' => $commentaires));
     }
 
-      // Ajouter un commentaire
-      public function commenter($auteur, $contenu, $idProjet)
+    // Ajouter un commentaire
+    public function commenter($auteur, $contenu, $idProjet)
+    {
+        $projet = $this->modeleProjets->getOneProjet($idProjet);
+        $commenter = $this->modeleCommentaires->ajouterCommentaire($auteur, $contenu, $idProjet);
+        if ($commenter) {
+            header('Location: index.php?action=Projet&id=' . $projet["id"]);
+        } else {
+            throw new \Exception('Impossible d\'ajouter le commentaire !');
+        }
+    }
+
+    // signaler le commentaire sur la vueProjet 
+    public function signalerCommentaires($idProjet, $idCommentaire)
+    {
+        $commentaires = $this->modeleCommentaires->getComSignale();
+        $commentaire = $this->modeleCommentaires->getCommentaires($idProjet);
+        $signaler = $this->modeleCommentaires->commentaireSignale($idCommentaire);
+        if ($signaler) {
+            header('Location: index.php?action=Projet&id=' . $idProjet);
+        } else {
+            throw new \Exception('Le commentaire n\'a pas été signalé');
+        }
+    }
+
+    //// PARTIE CRUD COMMENTAIRE /////
+
+      // Supprime les données liées à un commentaire signaler de la bdd dans le paneau administration
+      public function supprimerCommentaire($idCommentaire)
       {
-          $projet = $this->modeleProjets->getOneProjet($idProjet);
-          $commenter = $this->modeleCommentaires->ajouterCommentaire($auteur, $contenu, $idProjet);
-          if ($commenter) {
-              header('Location: index.php?action=Projet&id=' . $projet["id"]);
+          $commentaire = $this->modeleCommentaires->getComSignale();
+          $supprimer = $this->modeleCommentaires->deleteCommentaire($idCommentaire);
+          if ($supprimer) {
+              header('Location: index.php?action=adminVue');
   
-          } else {
-              throw new \Exception('Impossible d\'ajouter le commentaire !');
           }
+          // Actualisation de l'affichage
+          $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Admin");
+          $vue->generer(array());
   
       }
+  
 
-     //// PARTIE CRUD PROJET /////
+    // Valide un commentaire dans le panneau d'administration
+    public function validerCommentaire($idCommentaire)
+    {
+        $commentaire = $this->modeleCommentaires->getComSignale();
+        $valider = $this->modeleCommentaires->commentaireValide($idCommentaire);
+        if ($valider) {
+            header('Location: index.php?action=adminVue');
+
+        }
+        // Actualisation de l'affichage
+        throw new \Exception('Impossible de valider le commentaire !');
+    }
+
+
+    //// PARTIE CRUD PROJET /////
 
     // Affiche la page pour modifier un projet
     public function changerProjet($idProjet)
@@ -72,18 +114,16 @@ class Controleur
         $modifier = $this->modeleProjets->modifierProjet($idProjet, $image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
         if ($modifier) {
             header('Location: index.php?action=adminVue');
-
         }
         throw new \Exception('Impossible de modifier le projet !');
-
     }
 
-     // Affiche la page pour ajouter un projet
-     public function ajoutProjet()
-     {
-         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
-         $vue->generer(array());
-     }
+    // Affiche la page pour ajouter un projet
+    public function ajoutProjet()
+    {
+        $vue = new \OpenClassrooms\Portfolio\Vue\Vue("AjoutProjet");
+        $vue->generer(array());
+    }
 
     //affiche le nouveau projet
     public function vueProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue)
@@ -91,7 +131,6 @@ class Controleur
         $ajouterProjet = $this->modeleProjets->insertProjet($image_desc, $titre, $image_projet, $image_projet2, $desc_img, $desc_img2, $competence, $contenue);
         if ($ajouterProjet) {
             header('Location: index.php?action=adminVue');
-
         }
         // Actualisation de l'affichage du projet
         throw new \Exception('Impossible d\'ajouter le projet');
@@ -105,7 +144,6 @@ class Controleur
         $supprimer = $this->modeleProjets->deleteProjetCom($idProjet);
         if ($supprimer) {
             header('Location: index.php?action=adminVue');
-
         }
         // Actualisation de l'affichage
         throw new \Exception('Impossible de supprimer le projet');
@@ -119,8 +157,7 @@ class Controleur
     {
         $admin = $this->modeleAdmin->ajouterAdmin($pseudo, $pass);
         if ($admin) {
-        header('Location: index.php?action=inscriptionadmin');
-   
+            header('Location: index.php?action=inscriptionadmin');
         }
         // Actualisation de l'affichage
         throw new \Exception('Impossible d\'ajouter l\'admin');
@@ -129,9 +166,10 @@ class Controleur
     // Affiche la page d'administration
     public function admin()
     {
+        $commentaires = $this->modeleCommentaires->getComSignale();
         $projets = $this->modeleProjets->getProjets();
         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Admin");
-        $vue->generer(array('projets' => $projets));
+        $vue->generer(array('projets' => $projets, 'commentaires' => $commentaires));
     }
 
     public function authentificationAdmin($pseudo, $resultat)
@@ -141,13 +179,12 @@ class Controleur
         $isPasswordCorrect = password_verify($resultat, $admin['pass']);
 
         if ($isPasswordCorrect) {
-            
+
             session_start();
             $_SESSION['pseudo'] = $pseudo;
             header('Location: index.php');
         } else {
             throw new \Exception("Mauvais identifiant ou mot de passe !");
-
         }
     }
 
@@ -170,7 +207,7 @@ class Controleur
         $vue->generer(array());
     }
 
-        
+
 
     public function authentification($nom, $resultat)
     {
@@ -179,42 +216,36 @@ class Controleur
         $isPasswordCorrect = password_verify($resultat, $user['mdp']);
 
         if ($isPasswordCorrect) {
-            
+
             session_name('user');
             session_start();
             $_SESSION['nom'] = $nom;
             header('Location: index.php?action=VueUtilisateur');
-            
         } else {
             throw new \Exception("Mauvais identifiant ou mot de passe !");
-
         }
     }
-    
-    
+
+
     // Ajoute un utilisateur à la base de données
     public function utilisateur($nom, $mdp)
     {
         $utilisateur = $this->modeleUtilisateur->ajouterUtilisateur($nom, $mdp);
         if ($utilisateur) {
             header('Location: index.php');
-
         }
         // Actualisation de l'affichage
         throw new \Exception('Impossible d\'ajouter l\'utilisateur');
     }
 
-     // Clotûre la session
-     public function logoutUser()
-     {
+    // Clotûre la session
+    public function logoutUser()
+    {
         session_name('user');
         session_start();
         // Suppression des variables de session et de la session
-         $_SESSION = array();
-         session_destroy();
-         header('Location: index.php');
-     }
- 
-
-
+        $_SESSION = array();
+        session_destroy();
+        header('Location: index.php');
+    }
 }

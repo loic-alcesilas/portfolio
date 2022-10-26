@@ -36,5 +36,30 @@ class CommentairesManager extends Modele
         return $suppression;
     }
 
-    
+       // Renvoie la liste de tous les commentaires signalés
+       public function getComSignale()
+       {
+           $sql = 'SELECT com_id AS id, com_date AS date,'
+               . ' COM_AUTEUR AS auteur, com_contenue AS contenu, com_signale AS signale, PROJET_ID AS idProjet FROM commentaire'
+               . ' WHERE com_signale=true';
+           $commentaire = $this->executerRequete($sql);
+           return $commentaire;
+       }
+
+           // Modifie les données d'un commentaire pour le passer en signaler
+        public function commentaireSignale($idCommentaire)
+        {
+        $sql = 'UPDATE commentaire SET com_signale=TRUE WHERE COM_ID = ?';
+        $signalerCommentaire = $this->executerRequete($sql, array($idCommentaire));
+        return $signalerCommentaire;
+        }
+
+        
+        // Modifie les données d'un commentaire pour le passer en Validé
+        public function commentaireValide($idCommentaire)
+        {
+        $sql = 'UPDATE commentaire SET com_signale=FALSE WHERE COM_ID = ?';
+        $signalerCommentaire = $this->executerRequete($sql, array($idCommentaire));
+        return $signalerCommentaire;
+        }
 }

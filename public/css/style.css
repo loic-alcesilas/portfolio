@@ -828,6 +828,11 @@ header{
   
 }
 
+.contenu .bx {
+  font-size: 20px;
+  color: var(--main-color);
+}
+
 
 /********************** FORM INSCRIPTION/CONNEXION ***************/
 /**********************                            ***************/

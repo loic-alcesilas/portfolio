@@ -45,7 +45,41 @@ class Routeur
                     $this->ctrl->commenter($auteur, $contenu, $idProjet);
 
                 }
- 
+
+                //  ACTION POUR SIGNALER UN COMMENTAIRE
+                else if ($_GET['action'] == 'signalerCommentaire') {
+                    $idProjet = $this->getParametre($_GET, 'idProjet');
+                    $idCommentaire = $this->getParametre($_GET, 'id');
+                    $this->ctrl->signalerCommentaires($idProjet, $idCommentaire);
+                }
+                
+                // ACTION POUR VALIDER UN COMMENTAIRE
+                else if ($_GET['action'] == 'validerCom') {
+
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'admin vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $idCommentaire = $this->getParametre($_GET, 'id');
+                        $this->ctrl->validerCommentaire($idCommentaire);
+                    }
+
+                }
+                
+                // ACTION POUR SUPPRIMER UN COMMENTAIRE
+                else if ($_GET['action'] == 'deleteCom') {
+                    session_start();
+                    if (!isset($_SESSION['pseudo'])) {
+                        //rediriger l'utilisateur vers la page d'accueil
+                        header("Location: index.php");
+
+                    } else {
+                        $idCommentaire = $this->getParametre($_GET, 'id');
+                        $this->ctrl->supprimerCommentaire($idCommentaire);
+                    }
+                }
 
                 //// PARTIE ADMIN LOGIN /////
 

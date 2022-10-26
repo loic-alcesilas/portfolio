@@ -18,4 +18,21 @@
         </tr>
     <?php endforeach; ?>
     </table>
+
+    <h2 class="heading">Commentaires signalés</h2>
+
+    <table class='allProjet'>
+        <tr>
+            <td>Auteur</td>
+            <td>Message</td>
+        </tr>
+        <?php foreach ($commentaires as $commentaire) : ?>
+            <tr>
+                <td><?=htmlspecialchars($commentaire['auteur'])?></td>
+                <td><?=htmlspecialchars($commentaire['contenu'])?></td>
+                <td><a href="<?="index.php?action=validerCom&id=" . $commentaire['id']?>"><i class='bx bxs-check-square' aria-hidden="true"></i></a></td>
+                <td> <a href="<?="index.php?action=deleteCom&id=" . $commentaire['id']?>"><i id="del" class='bx bxs-x-square' aria-hidden="true"></i></a></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </section>
