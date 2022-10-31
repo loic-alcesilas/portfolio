@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+  <link rel="shortcut icon" href="#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,12 @@
 </head>
 
 <body>
+   <!-- Scroll Top -->
+   <a href="#top" class="scroll-top">
+    <i class='bx bx-up-arrow-alt'></i>
+  </a>
   <!-- Header -->
+  <section  id="top">
   <header>
     <!-- Nav -->
     <div class="nav container">
@@ -33,7 +39,7 @@
       <a href="index.php" class="logo">Loic</a>
       <!-- Navbar -->
       <ul class="navbar">
-        <li><a href="index.php" class="nav-link">Acceuil</a></li>
+        <li><a href="index.php" class="nav-link">Accueil</a></li>
         <li> <a href="index.php?action=VueUtilisateur">Inscription/Connexion</a> </li>
       </ul>
       <!-- Menu Icon -->
@@ -44,9 +50,9 @@
       </div>
     </div>
   </header>
-  <?= $contenu ?>
-  <!-- Élément spécifique -->
   </section>
+  <?= $contenu  ?>
+  <!-- Élément spécifique -->
   <!-- Email Js Link -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
   </script>
@@ -59,7 +65,6 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Js Link -->
   <script src="public/js/main.js"></script>
-  <script src="public/js/tinymce.js"></script>
 </body>
 
 </html>

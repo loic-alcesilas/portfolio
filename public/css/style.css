@@ -833,6 +833,11 @@ header{
   color: var(--main-color);
 }
 
+.bxs-check-square::before{
+  font-size: 18px;
+  color: green;
+}
+
 
 /********************** FORM INSCRIPTION/CONNEXION ***************/
 /**********************                            ***************/
@@ -954,7 +959,7 @@ td {
 
 
 .dashboard {
-  margin-top: 150px;
+  margin-top: 70px;
 }
 
 #edit {
@@ -1018,6 +1023,30 @@ td {
   border-radius: 40px;
   width: 100%;
   margin-top: 40px;
+}
+
+
+/********************** PAGE ERREUR ***************/
+/**********************                   ***************/
+
+.erreur {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 700px;
+  padding-bottom: 60px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.texterreur {
+  position: relative;
+  bottom: 190px;
+  font-size: 22px;
 }
 
 
@@ -1140,6 +1169,10 @@ td {
   #fadeVue {
     font-size: 15px;
   }
+  .formConnexion{
+    width: 90%;
+    padding: 27px 115px 111px 80px;
+  }
  
 }
 
@@ -1197,6 +1230,10 @@ td {
   }
   .headProjet {
     font-size: 2.5rem;
+  }
+
+  .formConnexion{
+    padding: 40px 106px 111px 50px;
   }
 }
 

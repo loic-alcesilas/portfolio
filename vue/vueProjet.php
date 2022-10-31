@@ -43,7 +43,8 @@ session_start(); ?>
         <div class="contenuMessage">
             <p class='auteur'><span class="span">Ecrit le :<br> <time><?= $commentaire['date'] ?></time> par </span><?= htmlspecialchars($commentaire['auteur']) ?></p>
             <p class='contenu'><?= htmlspecialchars($commentaire['contenu']) ?><br>
-            <a onclick="return confirm('Signaler ce commentaire ?');" id="signaler" href="<?="index.php?action=signalerCommentaire&id=" . $commentaire['id'] . "&idProjet=" . $projet['id']?>"><i class='bx bx-error'></i></a>
+            <a onclick="return confirm('Signaler ce commentaire ?');" id="signaler" href="<?="index.php?action=signalerCommentaire&id=" . $commentaire['id'] . "&idProjet=" . $projet['id']?>">
+            <i class='bx bx-error'></i></a>
         </p>
         </div>
     </div>

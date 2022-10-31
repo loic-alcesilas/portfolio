@@ -3,6 +3,7 @@
 <html lang="fr">
 
 <head>
+<link rel="shortcut icon" href="#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,16 +21,15 @@
   <a href="#home" class="scroll-top">
     <i class='bx bx-up-arrow-alt'></i>
   </a>
-
   <!-- Header -->
   <header>
     <!-- Nav -->
     <div class="nav container">
       <!-- Logo -->
-      <a href="#" class="logo">Loic</a>
+      <a href="index.php" class="logo">Loic</a>
       <!-- Navbar -->
       <ul class="navbar">
-        <li><a href="#home" class="nav-link">Acceuil</a></li>
+        <li><a href="index.php" class="nav-link">Accueil</a></li>
         <li><a href="#about" class="nav-link">A propos</a></li>
         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -44,8 +44,6 @@
     </div>
   </header>
 
-
-
   <!-- Home -->
   <section class="home container" id="home">
     <div class="home-content">
@@ -56,7 +54,7 @@
         <h3>Bonjour</h3>
         <h2><span class="color">Loïc</span></h2>
         <p>
-          Je suis un jeune <span class="color">Dévellopeur</span> étudiant qui aime créer des <span class="color">sites
+          Je suis un jeune <span class="color">Développeur </span> étudiant qui aime créer des <span class="color">sites
             web</span>
           <br>Vous pouvez me suivre sur les réseaux en cliquant <span class="color">ci dessous</span>
 
@@ -220,14 +218,14 @@
   <section class="footer container" id="footer">
     <div class="social">
       <a href="mailto:loic.alcesilas@gmail.com"><i class='bx bx-envelope'></i></a>
-      <a href="#"><i class='bx bxl-twitter'></i></a>
-      <a href="#"><i class='bx bxl-linkedin-square'></i></a>
-      <a href="#"><i class="bx bxl-github"></i></a>
+      <a href=""><i class='bx bxl-twitter'></i></a>
+      <a href=""><i class='bx bxl-linkedin-square'></i></a>
+      <a href=""><i class="bx bxl-github"></i></a>
     </div>
     <!-- Footer Links -->
     <div class="footer-links">
-      <a href="#">Politique de confidentialité</a>
-      <a href="#">Conditions d'utilisations</a>
+      <a href="">Politique de confidentialité</a>
+      <a href="">Conditions d'utilisations</a>
       <?php
       if (isset($_SESSION['pseudo'])) {
         echo '<a href="index.php?action=adminVue">Administration</a>';
@@ -256,6 +254,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="public/js/main.js"></script>
   <script src="public/js/contact.js"></script>
+  <script src="public/js/swiper.js"></script>
 </body>
 
 </html>
