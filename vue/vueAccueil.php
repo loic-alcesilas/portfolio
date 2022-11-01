@@ -84,10 +84,9 @@
         </a>
       </div>
       <div class="about-text">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo blanditiis</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo blanditiis explicabo asperiores error cum
-          quasi!</p>
-        <p>Lorem ipsum dolor sit, amet consectetur</p>
+        <p>Je m'appelle Loic alcesilas j'ai 21 ans, je suis un passionée d'informatique et du monde tech.</p>
+        <p>J'ai obtenue un BAC STI2D à Maubeuge.</p>
+        <p>Actuellement en formation chez Openclassroom.</p>
       </div>
     </div>
   </section>
@@ -101,20 +100,20 @@
       <div class="services-box">
         <i class='bx bx-code-alt'></i>
         <h2>Développement web</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aliquam exercitationem placeat
-          reprehenderit omnis harum.</p>
+        <p>Création de site PHP/JS de zero jusqu'à sa livraison final. 
+          </p>
       </div>
       <div class="services-box">
         <i class='bx bx-lock'></i>
         <h2>Intégration de Maquette</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aliquam exercitationem placeat
-          reprehenderit omnis harum.</p>
+        <p>Création de maquette statique en HTML/CSS,
+          en respectant le mockup fournit.</p>
       </div>
       <div class="services-box">
         <i class='bx bx-brush'></i>
         <h2>Site Wordpress</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aliquam exercitationem placeat
-          reprehenderit omnis harum.</p>
+        <p>Conception de site wordpress avec réferencement SEO. Utilisation de plugin/builder 
+          hebergement du site.</p>
       </div>
     </div>
   </section>
@@ -155,7 +154,7 @@
           <div class="skill-box">
            <i class='bx bxl-html5'></i>
             <p class="skill-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+          Integration, respect des Media querie(responsive) et de la norme W3C, sémantique logique.    
             </p>
             <div class="bar">
             <div class="bar-stat" id="html">
@@ -170,7 +169,7 @@
           <div class="skill-box">
           <i class='bx bxl-javascript'></i>
             <p class="skill-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+              Intégration d'API tiers, animation du site mise en place de slider, mode sombre et plein d'autre !
             </p>
             <div class="bar">
             <div class="bar-stat" id="js">
@@ -186,7 +185,7 @@
           <div class="skill-box">
           <i class='bx bxl-php' ></i>
             <p class="skill-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste id ratione quisquam cupiditate alias aspernatur recusandae atque quo, dolore, corrupti animi libero earum sed repellat.
+              Respect de l'architecture MVC, Requete SQL, mise en place de routeur.
             </p>
             <div class="bar">
             <div class="bar-stat" id="php">
