@@ -9,6 +9,7 @@ abstract class Modele
     private $bdd;
 
     protected function executerRequete($sql, $params = null)
+    
     {
         if ($params == null) {
             $resultat = $this->getBdd()->query($sql); // exécution directe

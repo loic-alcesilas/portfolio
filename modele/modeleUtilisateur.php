@@ -17,6 +17,16 @@ class UtilisateurManager extends Modele
 
     }
 
+    public function getUserById($id)
+    {
+        //  Récupération de l'utilisateur et de son pass hashé
+        $sql = 'SELECT id, nom, mdp FROM users WHERE id = ?';
+        $connexion = $this->executerRequete($sql, array($id));
+        $resultat = $connexion->fetch();
+        return $resultat;
+
+    }
+
     public function ajouterUtilisateur($nom, $mdp)
     {
         $sql = 'INSERT into users(nom, mdp)'

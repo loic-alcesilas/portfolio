@@ -6,7 +6,7 @@ require_once "Config/modele.php";
 
 class ProjetsManager extends Modele
 {
-    // Renvoie la liste de tous les billets, triés par identifiant décroissant
+    // Renvoie la liste de tous les projets, triés par identifiant décroissant
     public function getProjets()
     {
         $sql = 'SELECT id, titre, image_desc FROM projets ORDER BY id desc';

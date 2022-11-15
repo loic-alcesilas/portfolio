@@ -39,16 +39,15 @@ class Routeur
                 
                 //  ACTION POUR COMMENTER UN ARTICLE
                 else if ($_GET['action'] == 'commenter') {
-                    $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idProjet = $this->getParametre($_POST, 'id');
-                    $this->ctrl->commenter($auteur, $contenu, $idProjet);
+                    $this->ctrl->commenter($contenu, $idProjet);
 
                 }
 
                 //  ACTION POUR SIGNALER UN COMMENTAIRE
                 else if ($_GET['action'] == 'signalerCommentaire') {
-                    $idProjet = $this->getParametre($_GET, 'idProjet');
+                    $idProjet = $this->getParametre($_GET, 'id');
                     $idCommentaire = $this->getParametre($_GET, 'id');
                     $this->ctrl->signalerCommentaires($idProjet, $idCommentaire);
                 }
@@ -56,7 +55,7 @@ class Routeur
                 // ACTION POUR VALIDER UN COMMENTAIRE
                 else if ($_GET['action'] == 'validerCom') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'admin vers la page d'accueil
                         header("Location: index.php");
@@ -70,7 +69,7 @@ class Routeur
                 
                 // ACTION POUR SUPPRIMER UN COMMENTAIRE
                 else if ($_GET['action'] == 'deleteCom') {
-                    session_start();
+                   
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -112,7 +111,7 @@ class Routeur
 
                 // ACTION POUR ARRIVER SUR LA PAGE ADMINISTRATION
                 else if ($_GET['action'] == 'adminVue') {
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -128,7 +127,7 @@ class Routeur
                 //ACTION POUR SUPPRIMMER UN PROJET
                 else if ($_GET['action'] == 'delete') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -143,7 +142,7 @@ class Routeur
                 // ACTION POUR ACCÉDER À LA PAGE DE MODIFICATION D'UN PROJET
                 else if ($_GET['action'] == 'modifierProjet') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -159,7 +158,7 @@ class Routeur
 
                   else if ($_GET['action'] == 'modificationProjet') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -183,7 +182,7 @@ class Routeur
                 // ACTION POUR ACCÉDER À LA PAGE D'AJOUT D'ARTICLE
                 else if ($_GET['action'] == 'vueProjet') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");
@@ -198,7 +197,7 @@ class Routeur
                   // ACTION POUR POSTER LE NOUVEAU PROJET
                 else if ($_GET['action'] == 'ajoutProjet') {
 
-                    session_start();
+                    
                     if (!isset($_SESSION['pseudo'])) {
                         //rediriger l'utilisateur vers la page d'accueil
                         header("Location: index.php");

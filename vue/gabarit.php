@@ -51,8 +51,9 @@
     </div>
   </header>
   </section>
+   <!-- Élément spécifique -->
   <?= $contenu  ?>
-  <!-- Élément spécifique -->
+ 
   <!-- Email Js Link -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
   </script>

@@ -1,9 +1,9 @@
-<?php session_start(); ?>
+
 <!doctype html>
 <html lang="fr">
 
 <head>
-<link rel="shortcut icon" href="#">
+  <link rel="shortcut icon" href="#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
   <!-- Link To CSS -->
   <link rel="stylesheet" href="public/css/style.css">
   <!-- Link Swiper CSS CDN-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
   <!-- Box Icons -->
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -48,7 +48,6 @@
   <section class="home container" id="home">
     <div class="home-content">
       <div class="home-img">
-        <img src="" alt="">
       </div>
       <div class="home-text">
         <h3>Bonjour</h3>
@@ -100,8 +99,8 @@
       <div class="services-box">
         <i class='bx bx-code-alt'></i>
         <h2>Développement web</h2>
-        <p>Création de site PHP/JS de zero jusqu'à sa livraison final. 
-          </p>
+        <p>Création de site PHP/JS de zero jusqu'à sa livraison final.
+        </p>
       </div>
       <div class="services-box">
         <i class='bx bx-lock'></i>
@@ -112,7 +111,7 @@
       <div class="services-box">
         <i class='bx bx-brush'></i>
         <h2>Site Wordpress</h2>
-        <p>Conception de site wordpress avec réferencement SEO. Utilisation de plugin/builder 
+        <p>Conception de site wordpress avec réferencement SEO. Utilisation de plugin/builder
           hebergement du site.</p>
       </div>
     </div>
@@ -126,18 +125,20 @@
       <?php foreach ($projets as $projet) : ?>
         <div class="portfolio-box">
           <article>
-            <img src="<?= $projet['image_desc'] ?>" alt="" class="portfolio-img" href="index.php?action=Projet&id=<?= $projet['id'] ?>">
+            <img src="<?= $projet['image_desc'] ?>" alt="image_preview" class="portfolio-img">
             <!-- Overlay -->
-            <div class="portfolio-overlay" href="index.php?action=Projet&id=<?= $projet['id'] ?>">
+
+            <div class="portfolio-overlay">
               <h2><?= $projet['titre'] ?></h2>
 
               <a href="index.php?action=Projet&id=<?= $projet['id'] ?>">
                 <i class='bx bx-link-alt'></i>
               </a>
             </div>
+          </article>
         </div>
-        </article>
       <?php endforeach; ?>
+    </div>
   </section>
 
 
@@ -152,14 +153,14 @@
         <div class="swiper-slide">
           <!-- skill Box -->
           <div class="skill-box">
-           <i class='bx bxl-html5'></i>
+            <i class='bx bxl-html5'></i>
             <p class="skill-text">
-          Integration, respect des Media querie(responsive) et de la norme W3C, sémantique logique.    
+              Integration, respect des Media queries(responsive) et de la norme W3C, sémantique logique.
             </p>
             <div class="bar">
-            <div class="bar-stat" id="html">
+              <div class="bar-stat" id="html">
                 <span class="bar-text">HTML - 90%</span>
-            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -167,30 +168,30 @@
         <div class="swiper-slide">
           <!-- skill Box -->
           <div class="skill-box">
-          <i class='bx bxl-javascript'></i>
+            <i class='bx bxl-javascript'></i>
             <p class="skill-text">
               Intégration d'API tiers, animation du site mise en place de slider, mode sombre et plein d'autre !
             </p>
             <div class="bar">
-            <div class="bar-stat" id="js">
-            <span class="bar-text">JS - 60%</span>
+              <div class="bar-stat" id="js">
+                <span class="bar-text">JS - 60%</span>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         </div>
 
-        
+
         <div class="swiper-slide">
           <!-- Skill Box -->
           <div class="skill-box">
-          <i class='bx bxl-php' ></i>
+            <i class='bx bxl-php'></i>
             <p class="skill-text">
               Respect de l'architecture MVC, Requete SQL, mise en place de routeur.
             </p>
             <div class="bar">
-            <div class="bar-stat" id="php">
-            <span class="bar-text">PHP - 70%</span>
-            </div>
+              <div class="bar-stat" id="php">
+                <span class="bar-text">PHP - 70%</span>
+              </div>
             </div>
           </div>
         </div>
@@ -206,10 +207,10 @@
     <!-- Heading -->
     <h2 class="heading">Contact</h2>
     <!-- Contact Form -->
-    <form action="" class="contact-form" id="contact-form">
+    <form  class="contact-form" id="contact-form">
       <input type="text" placeholder="Votre nom" class="name" required>
-      <input type="email" name="" id="" placeholder="Address Email" class="email" required>
-      <textarea name="" id="" cols="30" rows="10" placeholder="Rédigez votre message ici..." class="message" required></textarea>
+      <input type="email" name="email" id="email" placeholder="Address Email" class="email" required>
+      <textarea name="message" cols="30" rows="10" placeholder="Rédigez votre message ici..." class="message" required></textarea>
       <input type="submit" value="Envoyer" class="send-btn">
     </form>
   </section>
@@ -238,9 +239,9 @@
     <p>© 2022 <strong>Alcesilas Loic - Dev WEBJ OpenClassrooms</strong></p>
   </section>
   <!-- Email Js Link -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
   </script>
-  <script type="text/javascript">
+  <script>
     (function() {
       emailjs.init("mDhaxqqU7IJs7LbL1");
     })();
@@ -248,9 +249,9 @@
   <!-- Sweet Alert Js Link -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Js Link -->
-  
+
   <!-- Link Swiper Js -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="public/js/main.js"></script>
   <script src="public/js/contact.js"></script>
   <script src="public/js/swiper.js"></script>

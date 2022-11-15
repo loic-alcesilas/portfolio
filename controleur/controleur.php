@@ -37,15 +37,28 @@ class Controleur
     {
         $projet = $this->modeleProjets->getOneProjet($idProjet);
         $commentaires = $this->modeleCommentaires->getCommentaires($idProjet);
+        $commentairesWithUser = [];
+        foreach($commentaires as $commentaire)
+        {
+          
+            
+          $user = $this->modeleUtilisateur->getUserById($commentaire['user_id']);
+          $commentaire['user'] = $this->modeleUtilisateur->getUserById($commentaire['user_id']);
+          $commentairesWithUser[] = $commentaire;
+           
+
+        }
+       
+    
         $vue = new \OpenClassrooms\Portfolio\Vue\Vue("Projet");
-        $vue->generer(array('projet' => $projet,  'commentaires' => $commentaires));
+        $vue->generer(array('projet' => $projet,  'commentaires' => $commentairesWithUser));
     }
 
     // Ajouter un commentaire
-    public function commenter($auteur, $contenu, $idProjet)
+    public function commenter($contenu, $idProjet)
     {
         $projet = $this->modeleProjets->getOneProjet($idProjet);
-        $commenter = $this->modeleCommentaires->ajouterCommentaire($auteur, $contenu, $idProjet);
+        $commenter = $this->modeleCommentaires->ajouterCommentaire($contenu, $idProjet);
         if ($commenter) {
             header('Location: index.php?action=Projet&id=' . $projet["id"]);
         } else {
@@ -180,7 +193,7 @@ class Controleur
 
         if ($isPasswordCorrect) {
 
-            session_start();
+            
             $_SESSION['pseudo'] = $pseudo;
             header('Location: index.php');
         } else {
@@ -191,7 +204,7 @@ class Controleur
     // Clotûre la session
     public function logoutAdmin()
     {
-        session_start();
+        
         // Suppression des variables de session et de la session
         $_SESSION = array();
         session_destroy();
@@ -217,8 +230,7 @@ class Controleur
 
         if ($isPasswordCorrect) {
 
-            session_name('user');
-            session_start();
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['nom'] = $nom;
             header('Location: index.php?action=VueUtilisateur');
         } else {
@@ -241,10 +253,9 @@ class Controleur
     // Clotûre la session
     public function logoutUser()
     {
-        session_name('user');
-        session_start();
+        
         // Suppression des variables de session et de la session
-        $_SESSION = array();
+        unset($_SESSION);
         session_destroy();
         header('Location: index.php');
     }

@@ -1,6 +1,4 @@
-<?php
-session_name('user');
-session_start(); ?>
+
 <?php $this->titre = "Portfolio - " . $projet['titre']; ?>
 <!-- PROJET -->
 <section class="vueProjet" id="fadeVue">
@@ -41,7 +39,7 @@ session_start(); ?>
 <?php foreach ($commentaires as $commentaire) : ?>
     <div class="listeCommentaires">
         <div class="contenuMessage">
-            <p class='auteur'><span class="span">Ecrit le :<br> <time><?= $commentaire['date'] ?></time> par </span><?= htmlspecialchars($commentaire['auteur']) ?></p>
+            <p class='auteur'><span class="span">Ecrit le :<br> <time><?= $commentaire['date'] ?></time> par </span><?= htmlspecialchars($commentaire['user']['nom']) ?></p>
             <p class='contenu'><?= htmlspecialchars($commentaire['contenu']) ?><br>
             <a onclick="return confirm('Signaler ce commentaire ?');" id="signaler" href="<?="index.php?action=signalerCommentaire&id=" . $commentaire['id'] . "&idProjet=" . $projet['id']?>">
             <i class='bx bx-error'></i></a>
@@ -64,10 +62,7 @@ if (!isset($_SESSION['nom'])) {
                             <label class="labelCom">Message</label><br>
                             <textarea class='formComContenue' rows="4" placeholder="Votre commentaire ici..." required></textarea>
                         </div><br />
-                        <div class="champCom">
-                            <label class="labelCom2">Pseudo</label><br>
-                            <input class='formComPseudo' type="text" placeholder="Votre pseudo" required>
-                        </div><br />
+                        
                         <div class="boutonComs">
                             <input class="btn" value="ENVOYER">
                         </div>
@@ -89,10 +84,7 @@ if (!isset($_SESSION['nom'])) {
                     <label class="labelCom" for="txtCommentaire">Message</label><br>
                     <textarea class='formComContenue' id="txtCommentaire" name="contenu" rows="4" placeholder="Votre commentaire ici..." required></textarea>
                 </div><br />
-                <div class="champCom">
-                    <label class="labelCom2" for="auteur">Pseudo</label><br>
-                    <input class='formComPseudo' id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required>
-                </div><br />
+                
                 <div class="boutonComs">
                     <input class="formulairecommentaire" type="hidden" name="id" value="<?= $projet["id"] ?>">
                     <input class="btn" type="submit" value="ENVOYER">
